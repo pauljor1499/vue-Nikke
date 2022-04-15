@@ -84,18 +84,6 @@
       </div>
       <div class="favourites-item">
         <img
-          src="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_1.0/w_411,c_limit/a8c9db65-0380-4ab2-87ee-954b72056a4d/dri-fit-strike-football-shorts-k3BsTd.png"
-          alt=""
-        />
-        <div class="label">
-          <div class="name">Nike Dri-FIT Strike</div>
-          <div class="price">₱5,295</div>
-          <br />
-          <div class="tag">Men's Training Shoes</div>
-        </div>
-      </div>
-      <div class="favourites-item">
-        <img
           src="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_1.0/w_411,c_limit/a20eb878-62d3-4138-9f9b-17b9da0ecc12/superrep-go-3-next-nature-flyknit-training-shoes-mxKptW.png"
           alt=""
         />
