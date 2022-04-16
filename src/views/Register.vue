@@ -2,7 +2,6 @@
   <body>
     <NavBar />
     <div class="content">
-      <div class="banner"></div>
       <div class="form">
         <div class="form-header">
           <div class="title">Sign Up</div>
@@ -147,19 +146,15 @@ export default {
   overflow: hidden;
 }
 
-.banner {
-  float: left;
-}
-
 .form {
   background-color: white;
   width: 30%;
-  margin: 0 auto;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 5px 0px rgb(207, 207, 207);
-  float: right;
-  margin: 40px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .form-header {
