@@ -6,37 +6,44 @@
         <div class="form-header">
           <div class="title">Log In</div>
         </div>
-        <div class="error-message">Invalid username and password.</div>
+        <div
+          :class="error_message ? 'error-message-show' : 'error-message-hide'"
+        >
+          Invalid username and password.
+        </div>
         <div class="form-body">
           <ul>
-            <form action="#">
-              <li>
-                <input
-                  type="email"
-                  name=""
-                  autofocus=""
-                  autocapitalize="none"
-                  required=""
-                  placeholder="Username"
-                  maxlength="20"
-                />
-              </li>
-              <li>
-                <input
-                  :type="eye ? open_eye_pass : close_eye_pass"
-                  name=""
-                  required=""
-                  placeholder="Password"
-                  maxlength="20"
-                />
-                <i
-                  @click="eye = !eye"
-                  :class="eye ? close_eye : open_eye"
-                  id="togglePassword"
-                ></i>
-              </li>
-              <li><button type="submit">LOG IN</button></li>
-            </form>
+            <li>
+              <input
+                v-model="email"
+                type="email"
+                id=""
+                name=""
+                autofocus=""
+                autocapitalize="none"
+                required=""
+                placeholder="Username"
+                maxlength="20"
+              />
+            </li>
+            <li>
+              <input
+                v-model="password"
+                :type="eye ? open_eye_pass : close_eye_pass"
+                name=""
+                required=""
+                placeholder="Password"
+                maxlength="20"
+              />
+              <i
+                @click="eye = !eye"
+                :class="eye ? close_eye : open_eye"
+                id="togglePassword"
+              ></i>
+            </li>
+            <li>
+              <button @click="showInput()" type="">LOG IN</button>
+            </li>
             <div class="password-forgot"><a href="#">Forgot Password?</a></div>
             <li>
               <hr />
@@ -89,6 +96,8 @@
 import { ref } from "@vue/reactivity";
 import NavBar from "../components/NavBar.vue";
 import Footer from "../components/Footer.vue";
+import { persons } from "../PersonList.js";
+import { useRouter } from "vue-router";
 
 export default {
   name: "Login",
@@ -98,14 +107,44 @@ export default {
   },
 
   setup() {
-    var eye = ref(true);
+    const router = useRouter();
+    let USERS = persons;
 
+    var error_message = ref(false);
+
+    var eye = ref(true);
     var open_eye = ref("far fa-eye");
     var close_eye = ref("far fa-eye-slash");
     var open_eye_pass = ref("password");
     var close_eye_pass = ref("text");
 
-    return { eye, open_eye, close_eye, open_eye_pass, close_eye_pass };
+    var email = ref(null);
+    var password = ref(null);
+
+    function showInput() {
+      if (
+        USERS.find((s) => s.EMAIL === email.value) &&
+        USERS.find((s) => s.PASSWORD === password.value)
+      ) {
+        error_message.value = false;
+        router.push({ path: "/register" });
+      } else {
+        error_message.value = true;
+      }
+    }
+
+    return {
+      eye,
+      open_eye,
+      close_eye,
+      open_eye_pass,
+      close_eye_pass,
+      USERS,
+      error_message,
+      email,
+      password,
+      showInput,
+    };
   },
 };
 </script>
@@ -144,7 +183,7 @@ export default {
   font-size: 20px;
 }
 
-.error-message {
+.error-message-show {
   padding: 6px;
   color: red;
   border: 0.5px solid rgb(250, 160, 160);
@@ -223,5 +262,13 @@ export default {
 
 .form-body .items a:hover {
   background-color: rgb(245, 245, 245);
+}
+
+.error-message-show {
+  display: block;
+}
+
+.error-message-hide {
+  display: none;
 }
 </style>
