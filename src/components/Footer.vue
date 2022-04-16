@@ -1,9 +1,6 @@
 <template>
   <footer>
     <div class="footer-head">
-      <div class="message">
-        <b>Get conected with us on social networks:</b>
-      </div>
       <div class="brands">
         <a href="#"><i class="fa-brands fa-facebook"></i></a>
         <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -57,7 +54,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div>&copy;Sample Website ONLY | Nike.com</div>
+      <div>&copy;Sample Website ONLY</div>
     </div>
   </footer>
 </template>
@@ -82,14 +79,8 @@ footer {
 
 footer .footer-head {
   overflow: hidden;
-  background-color: gray;
+  background-color: black;
   padding: 10px;
-}
-
-footer .footer-head .message {
-  color: white;
-  margin-left: 25px;
-  float: left;
 }
 
 footer .footer-head .brands {
@@ -98,7 +89,7 @@ footer .footer-head .brands {
 }
 
 footer .footer-head .brands a {
-  color: white;
+  color: gray;
   padding: 15px;
 }
 
@@ -145,7 +136,8 @@ footer .footer-body .content a {
   margin-top: 5px;
 }
 
-footer .footer-body .content a:hover {
+footer .footer-body .content a:hover,
+footer .footer-head .brands a:hover {
   color: white;
 }
 

@@ -139,9 +139,7 @@ export default {
   padding: 0;
   margin: 0;
   text-decoration: none;
-
   list-style: none;
-  font-family: "Open Sans", sans-serif;
 }
 
 .content {
@@ -160,7 +158,7 @@ export default {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 5px 0px rgb(207, 207, 207);
-  float: left;
+  float: right;
   margin: 40px;
 }
 

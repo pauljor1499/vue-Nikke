@@ -26,6 +26,7 @@
       <li><a href="#">Men</a></li>
     </ul>
   </nav>
+  <div class="sub"></div>
 </template>
 
 <script>
@@ -43,6 +44,7 @@ export default {};
 }
 nav {
   background-color: white;
+  border-bottom: 1px solid rgb(189, 189, 189);
 }
 
 nav h1 {
@@ -66,10 +68,11 @@ nav ul li a {
   float: right;
   padding: 14px 16px;
   color: black;
+  border-bottom: 2px solid white;
 }
 
 nav ul li a:hover:not(.active, .vl) {
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 }
 
 .active {
