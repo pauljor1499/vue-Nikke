@@ -22,7 +22,7 @@
                 autofocus=""
                 autocapitalize="none"
                 required=""
-                placeholder="Username"
+                placeholder="Email"
                 maxlength="20"
               />
             </li>
@@ -44,7 +44,9 @@
             <li>
               <button @click="showInput()" type="">LOG IN</button>
             </li>
-            <div class="password-forgot"><a href="#">Forgot Password?</a></div>
+            <div class="password-forgot">
+              <a href="#">Forgot Password?</a>
+            </div>
             <li>
               <hr />
               <div class="items">
@@ -96,7 +98,7 @@
 import { ref } from "@vue/reactivity";
 import NavBar from "../components/NavBar.vue";
 import Footer from "../components/Footer.vue";
-import { persons } from "../PersonList.js";
+import { persons } from "../api/PersonList.js";
 import { useRouter } from "vue-router";
 
 export default {
@@ -109,7 +111,6 @@ export default {
   setup() {
     const router = useRouter();
     let USERS = persons;
-
     var error_message = ref(false);
 
     var eye = ref(true);
@@ -127,7 +128,7 @@ export default {
         USERS.find((s) => s.PASSWORD === password.value)
       ) {
         error_message.value = false;
-        router.push({ path: "/register" });
+        router.push({ path: "/admin" });
       } else {
         error_message.value = true;
       }

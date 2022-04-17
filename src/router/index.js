@@ -1,8 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
-import NavBar from "../components/NavBar";
+// import NavBar from "../components/NavBar";
 import LandingPage from "../views/LandingPage.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
+import Products from "../views/ProductList.vue";
+import AdminProducts from "../views/AdminProducts.vue";
+import Admin from "../views/AdminPage.vue";
 
 const routes = [
   {
@@ -11,11 +14,11 @@ const routes = [
     component: LandingPage,
   },
 
-  {
-    path: "/",
-    name: "NavBar",
-    component: NavBar,
-  },
+  // {
+  //   path: "/",
+  //   name: "NavBar",
+  //   component: NavBar,
+  // },
 
   {
     path: "/login",
@@ -27,6 +30,24 @@ const routes = [
     path: "/register",
     name: "Register",
     component: Register,
+  },
+
+  {
+    path: "/products",
+    name: "Products",
+    component: Products,
+  },
+
+  {
+    path: "/admin",
+    name: "Admin",
+    component: Admin,
+  },
+
+  {
+    path: "/adminProducts",
+    name: "AdminProducts",
+    component: AdminProducts,
   },
 ];
 

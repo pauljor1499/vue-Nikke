@@ -9,7 +9,7 @@ export let persons = [
   {
     FIRSTNAME: "Vic",
     LASTNAME: "Reynolds",
-    EMAIL: "vic.reynolds@test.com",
+    EMAIL: "sample2",
     PASSWORD: "sample2",
     ROLE: "Admin",
   },
