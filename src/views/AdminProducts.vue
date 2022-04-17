@@ -18,7 +18,7 @@
         >
           <h2>No Products Available</h2>
         </div>
-        <div class="items">
+        <div :class="sidebar_status ? 'items' : 'items-5'">
           <div class="item" v-for="product in PRODUCTS" :key="product">
             <div class="item-content">
               <img
@@ -43,6 +43,7 @@ import { products } from "../api/ProductList.js";
 export default {
   name: "ProductList",
   components: {},
+  props: { sidebar_status: Boolean },
   setup() {
     let PRODUCTS = ref(products);
 

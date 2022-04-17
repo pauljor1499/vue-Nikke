@@ -150,7 +150,7 @@
         <div
           :class="page_status == 'products' ? 'products-show' : 'products-hide'"
         >
-          <AdminProducts />
+          <AdminProducts :sidebar_status="sidebar_show" />
         </div>
       </div>
     </div>
