@@ -14,7 +14,7 @@
           <h3>Rodrigo Duterte</h3>
           <p>Code: 142-4342-1</p>
           <p style="margin-bottom: 10px">Admin</p>
-          <a href="#">
+          <a class="view-profile" href="#">
             <span>View Profile</span>
           </a>
         </div>
@@ -59,7 +59,7 @@
           <li>
             <a
               href="#"
-              class="page_status == 'reports' ? 'active' : ''"
+              :class="page_status == 'reports' ? 'active' : ''"
               @click="click_reportsPage()"
             >
               <div>
@@ -93,59 +93,7 @@
             page_status == 'dashboard' ? 'board-body-show' : 'board-body-hide'
           "
         >
-          <h1>Welcome to your Dashboard!</h1>
-          <!-- Card -->
-          <div :class="sidebar_show ? 'cards-4' : 'cards-5'">
-            <div class="card">
-              <n-card
-                title="Subjects"
-                :segmented="{
-                  content: true,
-                  footer: 'soft',
-                }"
-                hoverable
-              >
-                <template #header-extra>View</template>
-                Card Content
-              </n-card>
-            </div>
-            <div class="card">
-              <n-card
-                title="Classes"
-                :segmented="{
-                  content: true,
-                  footer: 'soft',
-                }"
-                hoverable
-              >
-                <template #header-extra>View</template>
-                Card Content
-              </n-card>
-            </div>
-            <div class="card">
-              <n-card
-                title="Notifications"
-                :segmented="{
-                  content: true,
-                  footer: 'soft',
-                }"
-                hoverable
-              >
-                <template #header-extra>View</template>
-                Card Content
-              </n-card>
-            </div>
-            <div class="card">
-              <n-card class="calendar" hoverable>
-                <div class="date">21</div>
-                <div>
-                  <div class="month">December</div>
-                  <div class="year">2018</div>
-                  <div class="day">Sunday</div>
-                </div>
-              </n-card>
-            </div>
-          </div>
+          <AdminDashboard :sidebar_status="sidebar_show" />
         </div>
         <div
           :class="page_status == 'products' ? 'products-show' : 'products-hide'"
@@ -162,12 +110,14 @@
 import { ref } from "@vue/reactivity";
 import NavBarLogout from "../components/NavBar-Logout.vue";
 import AdminProducts from "../views/AdminProducts.vue";
+import AdminDashboard from "../views/AdminDashboard.vue";
 
 export default {
   name: "AdminPage",
   components: {
     NavBarLogout,
     AdminProducts,
+    AdminDashboard,
   },
 
   setup() {
@@ -217,7 +167,7 @@ export default {
 /* shide-bar show */
 .sidebar-show {
   background-color: white;
-  width: 280px;
+  width: 320px;
   height: 100%;
 }
 
@@ -249,7 +199,7 @@ export default {
   font-size: 12px;
   padding: 10px;
   padding-left: 140px;
-  color: rgba(255, 255, 255, 0.61);
+  color: black;
 }
 
 .sidebar-show ul {
@@ -298,8 +248,6 @@ export default {
 
 .board {
   width: 100%;
-  height: 200px;
-  background-color: gray;
 }
 
 .board .board-body-show,
@@ -318,50 +266,6 @@ export default {
   margin: 50px 80px 0;
 }
 
-/* cards - sidebar showing */
-.card {
-  width: 100%;
-  height: 200px;
-  text-align: left;
-}
-
-.cards-4 {
-  width: 95%;
-  display: grid;
-  margin: auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 20px;
-}
-
-.cards-4 .card .n-card {
-  max-width: 300px;
-  top: 50px;
-}
-
-.cards-4 .card .calendar {
-  display: flex;
-}
-
-.cards-4 .card .calendar .date {
-  float: left;
-  font-weight: bold;
-  font-size: 55px;
-  margin: 0px 20px 0px;
-}
-
-.cards-4.card .calendar .month {
-  font-weight: bold;
-  font-size: 16px;
-  margin: 10px 0px 0px;
-}
-/* cards - sidebar showing */
-
-footer {
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-  height: 100px;
-}
-
 .hamburger {
   position: absolute;
   float: left;
@@ -375,7 +279,7 @@ footer {
   height: 20px;
   background: transparent;
   border: none;
-  margin-left: 240px;
+  margin-left: 263px;
   transition: 0.5s ease-in;
 }
 
@@ -396,38 +300,6 @@ footer {
   cursor: pointer;
 }
 
-/* cards - sidebar not showing */
-.cards-5 {
-  width: 95%;
-  display: grid;
-  margin: auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  column-gap: 20px;
-}
-
-.cards-5 .card .n-card {
-  max-width: 300px;
-  top: 50px;
-}
-
-.cards-5 .card .calendar {
-  display: flex;
-}
-
-.cards-5 .card .calendar .date {
-  float: left;
-  font-weight: bold;
-  font-size: 55px;
-  margin: 0px 20px 0px;
-}
-
-.cards-5 .card .calendar .month {
-  font-weight: bold;
-  font-size: 16px;
-  margin: 10px 0px 0px;
-}
-/* cards - sidebar not showing */
-
 /* svg animation */
 .show {
   transform: rotate(0deg);
@@ -446,7 +318,7 @@ footer {
 }
 
 .drawerOff {
-  margin-left: -280px;
+  margin-left: -320px;
   transition: 0.5s ease-in;
 }
 </style>

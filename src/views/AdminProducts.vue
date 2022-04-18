@@ -11,6 +11,9 @@
         </select>
       </div>
       <div class="content">
+        <div class="actions">
+          <button>Create New Item</button>
+        </div>
         <div
           :class="
             PRODUCTS.length === 0 ? 'empty-message-show' : 'empty-message-hide'
@@ -27,7 +30,7 @@
               />
               <div class="name">{{ product.NAME }}</div>
               <div class="type">{{ product.TYPE }}</div>
-              <div class="price">{{ product.PRICE }}</div>
+              <div class="price">₱ {{ product.PRICE }}</div>
             </div>
           </div>
         </div>
@@ -41,7 +44,7 @@ import { ref } from "@vue/reactivity";
 import { products } from "../api/ProductList.js";
 
 export default {
-  name: "ProductList",
+  name: "AdminProducts",
   components: {},
   props: { sidebar_status: Boolean },
   setup() {
@@ -89,6 +92,18 @@ export default {
 .content {
   padding: 20px;
   background-color: rgb(245, 245, 245);
+}
+
+.content .actions {
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.content .actions button {
+  float: left;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .content .empty-message-show {
