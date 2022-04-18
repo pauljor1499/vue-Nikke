@@ -70,7 +70,6 @@
           </li>
         </ul>
       </div>
-      <!-- Board -->
       <div class="hamburger">
         <button
           @click="sidebar_show = !sidebar_show"
@@ -87,17 +86,11 @@
           </svg>
         </button>
       </div>
-      <div class="board">
-        <div
-          :class="
-            page_status == 'dashboard' ? 'board-body-show' : 'board-body-hide'
-          "
-        >
+      <div class="pages">
+        <div :class="page_status == 'dashboard' ? 'page-show' : 'page-hide'">
           <AdminDashboard :sidebar_status="sidebar_show" />
         </div>
-        <div
-          :class="page_status == 'products' ? 'products-show' : 'products-hide'"
-        >
+        <div :class="page_status == 'products' ? 'page-show' : 'page-hide'">
           <AdminProducts :sidebar_status="sidebar_show" />
         </div>
       </div>
@@ -246,21 +239,20 @@ export default {
   height: 750px;
 }
 
-.board {
+.pages {
   width: 100%;
 }
 
-.board .board-body-show,
-.board .products-show {
+.pages .page-show {
   display: block;
 }
 
-.board .board-body-hide,
-.board .products-hide {
+.pages .page-hide,
+.pages .products-hide {
   display: none;
 }
 
-.board h1 {
+.pages h1 {
   color: white;
   float: left;
   margin: 50px 80px 0;

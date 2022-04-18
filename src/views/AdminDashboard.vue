@@ -91,7 +91,6 @@ export default {
   float: left;
 }
 
-/* cards - sidebar showing */
 .card {
   width: 100%;
   height: 200px;
@@ -106,25 +105,6 @@ export default {
   padding: 20px;
 }
 
-.cards-4 .card .calendar {
-  display: flex;
-}
-
-.cards-4 .card .calendar .date {
-  float: left;
-  font-weight: bold;
-  font-size: 55px;
-  margin: 0px 20px 0px;
-}
-
-.cards-4.card .calendar .month {
-  font-weight: bold;
-  font-size: 16px;
-  margin: 10px 0px 0px;
-}
-/* cards - sidebar showing */
-
-/* cards - sidebar not showing */
 .cards-5 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -132,21 +112,20 @@ export default {
   padding: 20px;
 }
 
-.cards-5 .card .calendar {
+.card .calendar {
   display: flex;
 }
 
-.cards-5 .card .calendar .date {
+.card .calendar .date {
   float: left;
   font-weight: bold;
   font-size: 55px;
   margin: 0px 20px 0px;
 }
 
-.cards-5 .card .calendar .month {
+.card .calendar .month {
   font-weight: bold;
   font-size: 16px;
   margin: 10px 0px 0px;
 }
-/* cards - sidebar not showing */
 </style>
