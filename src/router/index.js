@@ -4,7 +4,6 @@ import LandingPage from "../views/LandingPage.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Products from "../views/ProductList.vue";
-import AdminProducts from "../views/AdminProducts.vue";
 import Admin from "../views/AdminPage.vue";
 
 const routes = [
@@ -42,12 +41,6 @@ const routes = [
     path: "/admin",
     name: "Admin",
     component: Admin,
-  },
-
-  {
-    path: "/adminProducts",
-    name: "AdminProducts",
-    component: AdminProducts,
   },
 ];
 

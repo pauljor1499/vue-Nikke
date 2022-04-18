@@ -25,7 +25,7 @@
           <div class="item" v-for="product in PRODUCTS" :key="product">
             <div class="item-content">
               <img
-                :src="require(`../assets/landing_page/${product.IMAGE}`)"
+                :src="require(`../../assets/landing_page/${product.IMAGE}`)"
                 alt=""
               />
               <div class="name">{{ product.NAME }}</div>
@@ -41,7 +41,7 @@
 </template>
 <script>
 import { ref } from "@vue/reactivity";
-import { products } from "../api/ProductList.js";
+import { products } from "../../api/ProductList.js";
 
 export default {
   name: "AdminProducts",

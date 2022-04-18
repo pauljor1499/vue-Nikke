@@ -2,10 +2,7 @@
   <NavBarLogout />
   <body>
     <div class="container">
-      <div
-        class="sidebar-show"
-        :class="sidebar_show ? 'drawerOn' : 'drawerOff'"
-      >
+      <div class="sidebar" :class="sidebar_show ? 'drawerOn' : 'drawerOff'">
         <div class="profile">
           <img
             src="https://thetaiwantimes.com/wp-content/uploads/2020/06/President_Rodrigo_Duterte-1.jpg"
@@ -102,8 +99,8 @@
 <script>
 import { ref } from "@vue/reactivity";
 import NavBarLogout from "../components/NavBar-Logout.vue";
-import AdminProducts from "../views/AdminProducts.vue";
-import AdminDashboard from "../views/AdminDashboard.vue";
+import AdminProducts from "../components/Admin/AdminProducts.vue";
+import AdminDashboard from "../components/Admin/AdminDashboard.vue";
 
 export default {
   name: "AdminPage",
@@ -157,18 +154,18 @@ export default {
   font-family: "Open Sans", sans-serif;
 }
 
-/* shide-bar show */
-.sidebar-show {
+/* side-bar show */
+.sidebar {
   background-color: white;
   width: 320px;
   height: 100%;
 }
 
-.sidebar-show .profile {
+.sidebar .profile {
   margin-top: 50px;
 }
 
-.sidebar-show .profile img {
+.sidebar .profile img {
   display: block;
   width: 70px;
   height: 70px;
@@ -177,17 +174,17 @@ export default {
   border: 2px solid black;
 }
 
-.sidebar-show .profile h3 {
+.sidebar .profile h3 {
   color: black;
   margin: 20px 0 10px;
 }
 
-.sidebar-show .profile p {
+.sidebar .profile p {
   color: black;
   font-size: 14px;
 }
 
-.sidebar-show .profile a {
+.sidebar .profile a {
   display: inline-block;
   font-size: 12px;
   padding: 10px;
@@ -195,13 +192,13 @@ export default {
   color: black;
 }
 
-.sidebar-show ul {
+.sidebar ul {
   display: inline-block;
   margin-top: 20px;
   width: 85%;
 }
 
-.sidebar-show ul li a {
+.sidebar ul li a {
   display: block;
   border-bottom: 1px solid gray;
   color: black;
@@ -209,30 +206,28 @@ export default {
   padding: 15px;
 }
 
-.sidebar-show ul li a div {
+.sidebar ul li a div {
   text-align: left;
 }
 
-.sidebar-show ul li a .icon {
+.sidebar ul li a .icon {
   margin-right: 15px;
 }
 
-.sidebar-show ul li a:hover,
-.sidebar-show ul li a.active {
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
   border-radius: 10px;
   background: black;
   transition: 0.6s ease-in;
 }
 
-.sidebar-show ul li a:hover .icon,
-.sidebar-show ul li a.active .icon,
-.sidebar-show ul li a:hover .item,
-.sidebar-show ul li a.active .item {
+.sidebar ul li a:hover .icon,
+.sidebar ul li a.active .icon,
+.sidebar ul li a:hover .item,
+.sidebar ul li a.active .item {
   color: white;
 }
-/* shide-bar show */
 
-/* body */
 .container {
   display: flex;
   background-color: hsl(0, 0%, 95%);
