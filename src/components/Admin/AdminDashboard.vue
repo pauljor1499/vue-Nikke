@@ -96,6 +96,7 @@ export default {
   height: 200px;
   text-align: left;
   margin-top: -80px;
+  cursor: pointer;
 }
 
 .cards-4 {

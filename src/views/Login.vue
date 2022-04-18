@@ -228,21 +228,20 @@ export default {
 }
 
 .form-body .items {
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
 }
 
 .form-body .items a {
-  display: inline-flex;
-  width: 118px;
   border: 0.5px solid rgb(204, 204, 204);
   border-radius: 3px;
-  margin: 2px;
   padding: 5px;
 }
 
 .form-body .items .item {
   display: inline-flex;
-  margin: auto;
+  padding-top: 5px;
 }
 
 .form-body a img {

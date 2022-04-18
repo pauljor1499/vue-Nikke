@@ -1,0 +1,120 @@
+<template>
+  <n-button @click="showModal = true">Add New Item</n-button>
+  <n-modal
+    v-model:show="showModal"
+    class="custom-card"
+    preset="card"
+    :style="bodyStyle"
+    title="Add New Item"
+    :bordered="false"
+    size="small"
+    :segmented="segmented"
+  >
+    <template #header-extra></template>
+    <div class="content">
+      <label for="item-name">Item Name</label><br />
+      <input
+        v-model="item_name"
+        type="text"
+        id="item-name"
+        placeholder="Name"
+      /><br /><br />
+      <label for="item-type">Item Name</label><br />
+      <input
+        v-model="item_type"
+        type="text"
+        id="item-type"
+        placeholder="Type"
+      /><br /><br />
+      <label for="item-type" id="item-price">Item Price</label><br />
+      <input
+        v-model="item_price"
+        type="number"
+        id="item-price"
+        placeholder="Price"
+      />
+    </div>
+    <template #footer>
+      <div class="bottom-button">
+        <n-button class="left_button" @click="showModal = false"
+          >Cancel</n-button
+        >
+        <n-button
+          class="right_button"
+          color="black"
+          type="primary"
+          @click="addItem() ? (showModal = false) : false"
+        >
+          Add
+        </n-button>
+      </div>
+    </template>
+  </n-modal>
+</template>
+
+<script>
+import { defineComponent, ref } from "vue";
+import { products } from "../../api/ProductList.js";
+
+export default defineComponent({
+  name: "Modal",
+  components: {},
+
+  setup() {
+    let PRODUCTS = ref(products);
+
+    let last_index = parseInt(products[products.length - 1].ID) + 1;
+
+    var item_name = ref(null);
+    var item_type = ref(null);
+    var item_price = ref(null);
+
+    var new_product = {
+      ID: last_index,
+      NAME: item_name,
+      TYPE: last_index,
+      PRICE: item_price,
+      IMAGE: "default_image.png",
+    };
+
+    function addItem() {
+      PRODUCTS.value.push(new_product);
+      return true;
+    }
+
+    return {
+      addItem,
+
+      //Styles
+      bodyStyle: {
+        width: "600px",
+      },
+      segmented: {
+        content: "soft",
+        footer: "soft",
+      },
+      showModal: ref(false),
+      PRODUCTS,
+      last_index,
+      new_product,
+      item_name,
+      item_type,
+      item_price,
+    };
+  },
+});
+</script>
+
+<style scoped>
+.n-button {
+  float: left;
+}
+
+.bottom-button .n-button {
+  width: 100px;
+}
+
+.right_button {
+  float: right;
+}
+</style>

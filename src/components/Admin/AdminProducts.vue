@@ -12,7 +12,7 @@
       </div>
       <div class="content">
         <div class="actions">
-          <button>Create New Item</button>
+          <CreateNewItem class="add-new-item" />
         </div>
         <div
           :class="
@@ -42,10 +42,11 @@
 <script>
 import { ref } from "@vue/reactivity";
 import { products } from "../../api/ProductList.js";
+import CreateNewItem from "../Modal/CreateNewProduct.vue";
 
 export default {
   name: "AdminProducts",
-  components: {},
+  components: { CreateNewItem },
   props: { sidebar_status: Boolean },
   setup() {
     let PRODUCTS = ref(products);
@@ -97,13 +98,6 @@ export default {
 .content .actions {
   overflow: hidden;
   margin-bottom: 50px;
-}
-
-.content .actions button {
-  float: left;
-  padding: 10px;
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .content .empty-message-show {
