@@ -31,7 +31,7 @@
               <div class="id">{{ product.ID }}</div>
               <div class="name">{{ product.NAME }}</div>
               <div class="type">{{ product.TYPE }}</div>
-              <div class="price">₱ {{ product.PRICE }}</div>
+              <div class="price">₱{{ product.PRICE }}</div>
             </div>
           </div>
         </div>

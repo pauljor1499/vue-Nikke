@@ -11,14 +11,16 @@
     </div>
     <div class="footer-body">
       <div class="content">
-        <h3>ABOUT NIKKE</h3>
-        <p>
-          Our mission is what drives us to do everything possible to expand
-          human potential. We do that by creating groundbreaking sport
-          innovations, by making our products more sustainably, by building a
-          creative and diverse global team and by making a positive impact in
-          communities where we live and work.
-        </p>
+        <div class="about">
+          <h3>ABOUT NIKKE</h3>
+          <p>
+            Our mission is what drives us to do everything possible to expand
+            human potential. We do that by creating groundbreaking sport
+            innovations, by making our products more sustainably, by building a
+            creative and diverse global team and by making a positive impact in
+            communities where we live and work.
+          </p>
+        </div>
       </div>
 
       <div class="content">
@@ -41,7 +43,7 @@
 
       <div class="content">
         <h3>MESSAGE US</h3>
-        <form action="">
+        <form>
           <input type="text" name="email" id="emailAdd" placeholder="Email" />
           <textarea
             type="text"
@@ -49,7 +51,9 @@
             name="message"
             placeholder="Message"
           />
-          <input type="submit" id="submitButton" />
+          <div>
+            <button>Submit</button>
+          </div>
         </form>
       </div>
     </div>
@@ -95,39 +99,46 @@ footer .footer-head .brands a {
 
 footer .footer-body {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1.2fr;
+  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  column-gap: 100px;
+  padding: 50px;
   background-color: black;
-  padding-right: 30px;
 }
 
 footer .footer-body .content {
-  padding: 40px 40px 40px 40px;
   color: white;
   text-align: left;
+  border: 1px solid black;
 }
 
 footer .footer-body .content h3 {
   margin-bottom: 30px;
 }
 
-footer .footer-body .content #emailAdd {
-  padding: 10px;
-  width: 100%;
-  margin-bottom: 10px;
+footer .footer-body .content .about {
+  text-align: left;
 }
 
-footer .footer-body .content #emailMessage {
-  padding: 10px;
+footer .footer-body .content form {
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+}
+
+footer .footer-body .content form #emailAdd,
+footer .footer-body .content form #emailMessage,
+footer .footer-body .content form button {
+  padding: 10px;
+}
+
+footer .footer-body .content form #emailMessage {
   height: 100px;
-  margin-bottom: 10px;
 }
 
-footer .footer-body .content #submitButton {
-  width: 100px;
-  padding: 5px;
+footer .footer-body .content form button {
   float: right;
-  margin-right: -24px;
+  width: 25%;
 }
 
 footer .footer-body .content a {

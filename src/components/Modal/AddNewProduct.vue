@@ -12,27 +12,33 @@
   >
     <template #header-extra></template>
     <div class="content">
-      <label for="item-name">Item Name</label><br />
-      <input
-        v-model="item_name"
-        type="text"
-        id="item-name"
-        placeholder="Name"
-      /><br /><br />
-      <label for="item-type">Item Name</label><br />
-      <input
-        v-model="item_type"
-        type="text"
-        id="item-type"
-        placeholder="Type"
-      /><br /><br />
-      <label for="item-type" id="item-price">Item Price</label><br />
-      <input
-        v-model="item_price"
-        type="number"
-        id="item-price"
-        placeholder="Price"
-      />
+      <div class="field">
+        <label for="item-name">Item Name</label>
+        <input
+          v-model="item_name"
+          type="text"
+          id="item-name"
+          placeholder="Name"
+        />
+      </div>
+      <div class="field">
+        <label for="item-type">Item Name</label>
+        <input
+          v-model="item_type"
+          type="text"
+          id="item-type"
+          placeholder="Type"
+        />
+      </div>
+      <div class="field">
+        <label for="item-type" id="item-price">Item Price</label>
+        <input
+          v-model="item_price"
+          type="number"
+          id="item-price"
+          placeholder="Price"
+        />
+      </div>
     </div>
     <template #footer>
       <div class="bottom-button">
@@ -53,7 +59,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, watch } from "vue";
+import { defineComponent, ref } from "vue";
 import { API } from "../../api/ProductList.js";
 
 export default defineComponent({
@@ -61,15 +67,15 @@ export default defineComponent({
   components: {},
 
   setup() {
+    var item_name = ref(null);
+    var item_type = ref(null);
+    var item_price = ref(null);
+
     let PRODUCTS = ref(API.prototype.getProducts());
 
     let lastIndex_ByID = ref(
       parseInt(PRODUCTS.value[PRODUCTS.value.length - 1].ID) + 1
     );
-
-    var item_name = ref(null);
-    var item_type = ref(null);
-    var item_price = ref(null);
 
     function addNewProduct() {
       API.prototype.addNewProduct({
@@ -85,7 +91,7 @@ export default defineComponent({
     return {
       //Styles
       bodyStyle: {
-        width: "600px",
+        width: "400px",
       },
       segmented: {
         content: "soft",
@@ -104,6 +110,22 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.content {
+  width: 100%;
+  display: grid;
+  grid-template: 1fr;
+  row-gap: 10px;
+}
+
+.content .field {
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+}
+
+.content input {
+  padding: 5px;
+}
+
 .n-button {
   float: left;
 }

@@ -11,7 +11,7 @@
           <h3>Rodrigo Duterte</h3>
           <p>Code: 142-4342-1</p>
           <p style="margin-bottom: 10px">Admin</p>
-          <a class="view-profile" href="#">
+          <a href="#">
             <span>View Profile</span>
           </a>
         </div>
@@ -90,9 +90,7 @@
         <div :class="page_status == 'products' ? 'page-show' : 'page-hide'">
           <AdminProducts :sidebar_status="sidebar_show" />
         </div>
-        <div :class="page_status == 'users' ? 'page-show' : 'page-hide'">
-          <AdminProducts :sidebar_status="sidebar_show" />
-        </div>
+        <div :class="page_status == 'users' ? 'page-show' : 'page-hide'"></div>
       </div>
     </div>
   </body>
@@ -193,6 +191,12 @@ export default {
   padding: 10px;
   padding-left: 140px;
   color: black;
+}
+
+.sidebar .profile a span:hover {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgb(219, 219, 219);
 }
 
 .sidebar ul {
