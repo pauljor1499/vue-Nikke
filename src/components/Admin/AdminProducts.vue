@@ -3,11 +3,11 @@
     <div class="list">
       <div class="header">
         <input type="text" name="" id="" placeholder="Search" />
-        <select name="" id="Gender">
-          <option value="volvo">Featured</option>
-          <option value="saab">Newest</option>
-          <option value="saab">Price: High-Low</option>
-          <option value="saab">Price: Low-High</option>
+        <select name="" id="filter">
+          <option value="featured">Featured</option>
+          <option value="newest">Newest</option>
+          <option value="high">Price: High-Low</option>
+          <option value="low">Price: Low-High</option>
         </select>
       </div>
       <div class="content">
@@ -32,6 +32,7 @@
               <div class="name">{{ product.NAME }}</div>
               <div class="type">{{ product.TYPE }}</div>
               <div class="price">₱{{ product.PRICE }}</div>
+              <div class="price">{{ product.COLOR }}</div>
             </div>
           </div>
         </div>

@@ -1,3 +1,5 @@
+// SAMLPLE
+
 <template>
   <body>
     <div class="container">
