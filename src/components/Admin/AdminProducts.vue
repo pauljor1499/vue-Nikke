@@ -12,7 +12,7 @@
       </div>
       <div class="content">
         <div class="actions">
-          <CreateNewItem class="add-new-item" />
+          <AddNewProduct />
         </div>
         <div
           :class="
@@ -26,8 +26,9 @@
             <div class="item-content">
               <img
                 :src="require(`../../assets/landing_page/${product.IMAGE}`)"
-                alt=""
+                :alt="`${product.IMAGE}`"
               />
+              <div class="id">{{ product.ID }}</div>
               <div class="name">{{ product.NAME }}</div>
               <div class="type">{{ product.TYPE }}</div>
               <div class="price">₱ {{ product.PRICE }}</div>
@@ -42,11 +43,11 @@
 <script>
 import { ref } from "@vue/reactivity";
 import { products } from "../../api/ProductList.js";
-import CreateNewItem from "../Modal/CreateNewProduct.vue";
+import AddNewProduct from "../Modal/AddNewProduct.vue";
 
 export default {
   name: "AdminProducts",
-  components: { CreateNewItem },
+  components: { AddNewProduct },
   props: { sidebar_status: Boolean },
   setup() {
     let PRODUCTS = ref(products);
@@ -143,6 +144,7 @@ export default {
   height: 200px;
 }
 
+.content .item .id,
 .content .item .name,
 .content .item .type,
 .content .item .price {

@@ -50,25 +50,21 @@
       </div>
     </template>
   </n-modal>
-  {{ counter }}
 </template>
 
 <script>
 import { defineComponent, ref, watch } from "vue";
-import { products, API } from "../../api/ProductList.js";
+import { API } from "../../api/ProductList.js";
 
 export default defineComponent({
   name: "CreateNewProduct",
   components: {},
 
   setup() {
-    // let PRODUCTS = ref(products);
-
     let PRODUCTS = ref(API.prototype.getProducts());
-    // alert(PRODUCTS.value);
 
-    let counter = ref(
-      parseInt(PRODUCTS.value[PRODUCTS.value.length - 1].ID + 1)
+    let lastIndex_ByID = ref(
+      parseInt(PRODUCTS.value[PRODUCTS.value.length - 1].ID) + 1
     );
 
     var item_name = ref(null);
@@ -76,26 +72,17 @@ export default defineComponent({
     var item_price = ref(null);
 
     function addNewProduct() {
-      // PRODUCTS.value.push({
-      //   ID: 1,
-      //   NAME: counter.value++,
-      //   TYPE: "1",
-      //   PRICE: "1",
-      //   IMAGE: "default_image.png",
-      // });
       API.prototype.addNewProduct({
-        ID: 1,
-        NAME: counter.value++,
-        TYPE: "1",
-        PRICE: "1",
+        ID: lastIndex_ByID.value++,
+        NAME: item_name.value,
+        TYPE: item_type.value,
+        PRICE: item_price.value,
         IMAGE: "default_image.png",
       });
       return true;
     }
 
     return {
-      addNewProduct,
-
       //Styles
       bodyStyle: {
         width: "600px",
@@ -109,7 +96,8 @@ export default defineComponent({
       item_name,
       item_type,
       item_price,
-      counter,
+      lastIndex_ByID,
+      addNewProduct,
     };
   },
 });
