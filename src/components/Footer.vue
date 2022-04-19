@@ -24,37 +24,39 @@
       </div>
 
       <div class="content">
-        <h3>PRODUCTS</h3>
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">Kids</a>
-        <a href="#">Sales</a>
-        <a href="#">SNKRS</a>
+        <div class="products">
+          <h3>PRODUCTS</h3>
+          <a href="#">Men</a>
+          <a href="#">Women</a>
+          <a href="#">Kids</a>
+          <a href="#">Sales</a>
+          <a href="#">SNKRS</a>
+        </div>
       </div>
 
       <div class="content">
-        <h3>CONTACT US</h3>
-        <a href="#"
-          ><i class="fa-solid fa-building"></i> New York, NY 10012, US</a
-        >
-        <a href="#"><i class="fa-solid fa-envelope"></i>sample@example.com</a>
-        <a href="#"><i class="fa-solid fa-phone"></i>+01 235 456 78</a>
+        <div class="contacts">
+          <h3>CONTACT US</h3>
+          <a href="#"
+            ><i class="fa-solid fa-building"></i> New York, NY 10012, US</a
+          >
+          <a href="#"><i class="fa-solid fa-envelope"></i>sample@example.com</a>
+          <a href="#"><i class="fa-solid fa-phone"></i>+01 235 456 78</a>
+        </div>
       </div>
 
       <div class="content">
         <h3>MESSAGE US</h3>
-        <form>
-          <input type="text" name="email" id="emailAdd" placeholder="Email" />
-          <textarea
-            type="text"
-            id="emailMessage"
-            name="message"
-            placeholder="Message"
-          />
-          <div>
-            <button>Submit</button>
-          </div>
-        </form>
+        <input type="text" name="email" id="emailAdd" placeholder="Email" />
+        <textarea
+          type="text"
+          id="emailMessage"
+          name="message"
+          placeholder="Message"
+        />
+        <div>
+          <button>Submit</button>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -112,31 +114,31 @@ footer .footer-body .content {
 }
 
 footer .footer-body .content h3 {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 footer .footer-body .content .about {
   text-align: left;
 }
 
-footer .footer-body .content form {
+footer .footer-body .content {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 10px;
 }
 
-footer .footer-body .content form #emailAdd,
-footer .footer-body .content form #emailMessage,
-footer .footer-body .content form button {
+footer .footer-body .content #emailAdd,
+footer .footer-body .content #emailMessage,
+footer .footer-body .content button {
   padding: 10px;
 }
 
-footer .footer-body .content form #emailMessage {
+footer .footer-body .content #emailMessage {
   height: 100px;
 }
 
-footer .footer-body .content form button {
+footer .footer-body .content button {
   float: right;
   width: 25%;
 }
