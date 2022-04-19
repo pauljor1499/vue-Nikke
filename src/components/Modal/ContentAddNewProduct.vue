@@ -67,20 +67,19 @@ export default {
     let product_price = ref("");
     let product_color = ref("");
 
-    var PRODUCTS = API.prototype.getProducts();
-    var lastIndex_ByID = ref(
-      parseInt(PRODUCTS.value[PRODUCTS.value.length - 1].ID) + 1
-    );
+    let PRODUCTS = API.prototype.getProducts();
+    let lastIndex_ByID =
+      parseInt(PRODUCTS.value[PRODUCTS.value.length - 1].ID) + 1;
 
-    let new_product = ref({
-      ID: lastIndex_ByID.value++,
+    let new_product = {
+      ID: lastIndex_ByID++,
       NAME: product_name,
       TYPE: product_type,
       PRICE: product_price,
       COLOR: product_color,
       DESCRIPTION: "",
       IMAGE: "default_image.png",
-    });
+    };
 
     return {
       PRODUCTS,

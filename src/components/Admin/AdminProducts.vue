@@ -42,16 +42,16 @@
   </body>
 </template>
 <script>
-import { ref } from "@vue/reactivity";
-import { products } from "../../api/ProductList.js";
+import { API } from "../../api/ProductList.js";
 import AddNewProduct from "../Modal/AddNewProduct.vue";
 
 export default {
   name: "AdminProducts",
   components: { AddNewProduct },
   props: { sidebar_status: Boolean },
+
   setup() {
-    let PRODUCTS = ref(products);
+    let PRODUCTS = API.prototype.getProducts();
 
     return {
       PRODUCTS,

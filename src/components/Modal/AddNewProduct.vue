@@ -1,5 +1,5 @@
 <template>
-  <n-button @click="showModal = true">Add New Item</n-button>
+  <n-button @click="showModal = true">Add New Product</n-button>
   <n-modal v-model:show="showModal" :mask-closable="false">
     <ContentAddNewProduct
       @click_closeModal="showModal = false"
