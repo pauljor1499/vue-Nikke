@@ -90,6 +90,9 @@
         <div :class="page_status == 'products' ? 'page-show' : 'page-hide'">
           <AdminProducts :sidebar_status="sidebar_show" />
         </div>
+        <div :class="page_status == 'users' ? 'page-show' : 'page-hide'">
+          <AdminProducts :sidebar_status="sidebar_show" />
+        </div>
       </div>
     </div>
   </body>

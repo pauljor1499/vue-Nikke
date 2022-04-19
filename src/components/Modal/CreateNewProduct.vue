@@ -43,47 +43,58 @@
           class="right_button"
           color="black"
           type="primary"
-          @click="addItem() ? (showModal = false) : false"
+          @click="addNewProduct() ? (showModal = false) : false"
         >
           Add
         </n-button>
       </div>
     </template>
   </n-modal>
+  {{ counter }}
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
-import { products } from "../../api/ProductList.js";
+import { defineComponent, ref, watch } from "vue";
+import { products, API } from "../../api/ProductList.js";
 
 export default defineComponent({
-  name: "Modal",
+  name: "CreateNewProduct",
   components: {},
 
   setup() {
-    let PRODUCTS = ref(products);
+    // let PRODUCTS = ref(products);
 
-    let last_index = parseInt(products[products.length - 1].ID) + 1;
+    let PRODUCTS = ref(API.prototype.getProducts());
+    // alert(PRODUCTS.value);
+
+    let counter = ref(
+      parseInt(PRODUCTS.value[PRODUCTS.value.length - 1].ID + 1)
+    );
 
     var item_name = ref(null);
     var item_type = ref(null);
     var item_price = ref(null);
 
-    var new_product = {
-      ID: last_index,
-      NAME: item_name,
-      TYPE: last_index,
-      PRICE: item_price,
-      IMAGE: "default_image.png",
-    };
-
-    function addItem() {
-      PRODUCTS.value.push(new_product);
+    function addNewProduct() {
+      PRODUCTS.value.push({
+        ID: 1,
+        NAME: counter.value++,
+        TYPE: "1",
+        PRICE: "1",
+        IMAGE: "default_image.png",
+      });
+      // API.prototype.addNewProduct({
+      //   ID: 1,
+      //   NAME: counter.value++,
+      //   TYPE: "1",
+      //   PRICE: "1",
+      //   IMAGE: "default_image.png",
+      // });
       return true;
     }
 
     return {
-      addItem,
+      addNewProduct,
 
       //Styles
       bodyStyle: {
@@ -95,11 +106,10 @@ export default defineComponent({
       },
       showModal: ref(false),
       PRODUCTS,
-      last_index,
-      new_product,
       item_name,
       item_type,
       item_price,
+      counter,
     };
   },
 });
