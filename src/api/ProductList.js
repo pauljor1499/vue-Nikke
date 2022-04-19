@@ -1,4 +1,6 @@
-export let products = [
+import { ref } from "vue";
+
+export let products = ref([
   {
     ID: 1,
     NAME: "Piattos",
@@ -34,7 +36,7 @@ export let products = [
     TYPE: "Men's Wear",
     IMAGE: "favourite5.png",
   },
-];
+]);
 
 export class API {
   getProducts() {
@@ -42,7 +44,6 @@ export class API {
   }
 
   addNewProduct(new_product) {
-    products.push(new_product);
-    alert(products.length + " " + new_product.NAME);
+    products.value.push(new_product);
   }
 }

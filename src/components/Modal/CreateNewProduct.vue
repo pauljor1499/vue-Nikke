@@ -76,20 +76,20 @@ export default defineComponent({
     var item_price = ref(null);
 
     function addNewProduct() {
-      PRODUCTS.value.push({
-        ID: 1,
-        NAME: counter.value++,
-        TYPE: "1",
-        PRICE: "1",
-        IMAGE: "default_image.png",
-      });
-      // API.prototype.addNewProduct({
+      // PRODUCTS.value.push({
       //   ID: 1,
       //   NAME: counter.value++,
       //   TYPE: "1",
       //   PRICE: "1",
       //   IMAGE: "default_image.png",
       // });
+      API.prototype.addNewProduct({
+        ID: 1,
+        NAME: counter.value++,
+        TYPE: "1",
+        PRICE: "1",
+        IMAGE: "default_image.png",
+      });
       return true;
     }
 
