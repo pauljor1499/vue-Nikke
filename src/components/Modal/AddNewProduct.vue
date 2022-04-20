@@ -3,8 +3,12 @@
   <n-modal v-model:show="showModal" :mask-closable="false">
     <ContentAddNewProduct
       @click_closeModal="showModal = false"
-      @click_addNewProduct="addNewProduct($event) ? (showModal = false) : ''"
-      :invalid_name="valid_name"
+      @click_addNewProduct="checkInput($event) ? (showModal = false) : ''"
+      :invalid_name="error_name"
+      :invalid_type="error_type"
+      :invalid_price="error_price"
+      :invalid_color="error_color"
+      :invalid_description="error_description"
     />
   </n-modal>
 </template>
@@ -21,17 +25,64 @@ export default defineComponent({
   setup() {
     let showModal = ref(false);
 
-    let valid_name = ref(true);
+    let error_name = ref(false);
+    let error_type = ref(false);
+    let error_price = ref(false);
+    let error_color = ref(false);
+    let error_description = ref(false);
 
-    function addNewProduct(new_product) {
-      API.prototype.addNewProduct(new_product);
-      return true;
+    function checkInput(new_product) {
+      if (new_product.NAME.value == "") {
+        error_name.value = true;
+      } else {
+        error_name.value = false;
+      }
+
+      if (new_product.TYPE.value == "") {
+        error_type.value = true;
+      } else {
+        error_type.value = false;
+      }
+
+      if (new_product.PRICE.value == 0) {
+        error_price.value = true;
+      } else {
+        error_price.value = false;
+      }
+
+      if (new_product.COLOR.value == "") {
+        error_color.value = true;
+      } else {
+        error_color.value = false;
+      }
+
+      if (new_product.DESCRIPTION.value == "") {
+        error_description.value = true;
+      } else {
+        error_description.value = false;
+      }
+
+      if (
+        !error_name.value &&
+        !error_type.value &&
+        !error_price.value &&
+        !error_color.value &&
+        !error_description.value
+      ) {
+        API.prototype.addNewProduct(new_product);
+        return true;
+      }
+      return false;
     }
 
     return {
       showModal,
-      addNewProduct,
-      valid_name,
+      checkInput,
+      error_name,
+      error_type,
+      error_price,
+      error_color,
+      error_description,
     };
   },
 });
