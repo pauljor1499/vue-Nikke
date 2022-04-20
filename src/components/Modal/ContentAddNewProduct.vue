@@ -64,7 +64,7 @@ export default {
   setup() {
     let product_name = ref("");
     let product_type = ref("");
-    let product_price = ref("");
+    let product_price = ref(0);
     let product_color = ref("");
 
     let PRODUCTS = API.prototype.getProducts();

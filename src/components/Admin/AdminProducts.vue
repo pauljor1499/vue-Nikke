@@ -28,11 +28,19 @@
                 :src="require(`../../assets/landing_page/${product.IMAGE}`)"
                 :alt="`${product.IMAGE}`"
               />
-              <div class="id">{{ product.ID }}</div>
+              <!-- <div class="id">{{ product.ID }}</div> -->
               <div class="name">{{ product.NAME }}</div>
               <div class="type">{{ product.TYPE }}</div>
-              <div class="price">₱{{ product.PRICE }}</div>
-              <div class="price">{{ product.COLOR }}</div>
+              <div class="price">
+                <!-- en-US means to have commas -->
+                {{
+                  product.PRICE.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "PHP",
+                  })
+                }}
+              </div>
+              <!-- <div class="price">{{ product.COLOR }}</div> -->
             </div>
           </div>
         </div>

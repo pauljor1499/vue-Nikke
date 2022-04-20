@@ -7,7 +7,7 @@
       <div :class="sidebar_status ? 'cards-4' : 'cards-5'">
         <div class="card">
           <n-card
-            title="Subjects"
+            title="Product List"
             :segmented="{
               content: true,
               footer: 'soft',
@@ -20,7 +20,7 @@
         </div>
         <div class="card">
           <n-card
-            title="Classes"
+            title="User List"
             :segmented="{
               content: true,
               footer: 'soft',

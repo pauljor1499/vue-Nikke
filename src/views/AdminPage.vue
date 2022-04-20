@@ -5,10 +5,10 @@
       <div class="sidebar" :class="sidebar_show ? 'drawerOn' : 'drawerOff'">
         <div class="profile">
           <img
-            src="https://thetaiwantimes.com/wp-content/uploads/2020/06/President_Rodrigo_Duterte-1.jpg"
+            src="https://cahsi.utep.edu/wp-content/uploads/kisspng-computer-icons-user-clip-art-user-5abf13db5624e4.1771742215224718993529.png"
             alt="profile_picture"
           />
-          <h3>Rodrigo Duterte</h3>
+          <h3>Paul Vincent Jor</h3>
           <p>Code: 142-4342-1</p>
           <p style="margin-bottom: 10px">Admin</p>
           <a href="#">
