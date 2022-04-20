@@ -59,7 +59,7 @@ nav ul {
   margin-right: 5%;
 }
 
-nav ul button {
+nav ul .n-button {
   float: right;
   padding: 10px;
 }

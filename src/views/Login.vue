@@ -1,94 +1,90 @@
 <template>
   <body>
     <NavBar />
-    <div class="content">
-      <div class="form">
-        <div class="form-header">
-          <div class="title">Log In</div>
-        </div>
-        <div
-          :class="error_message ? 'error-message-show' : 'error-message-hide'"
-        >
-          Invalid username and password.
-        </div>
-        <div class="form-body">
-          <ul>
-            <li>
-              <input
-                v-model="email"
-                type="email"
-                id=""
-                name=""
-                autofocus=""
-                autocapitalize="none"
-                required=""
-                placeholder="Email"
-                maxlength="20"
-              />
-            </li>
-            <li>
-              <input
-                v-model="password"
-                :type="eye ? open_eye_pass : close_eye_pass"
-                name=""
-                required=""
-                placeholder="Password"
-                maxlength="20"
-              />
-              <i
-                @click="eye = !eye"
-                :class="eye ? close_eye : open_eye"
-                id="togglePassword"
-              ></i>
-            </li>
-            <li>
-              <button @click="showInput()" type="">LOG IN</button>
-            </li>
-            <div class="password-forgot">
-              <a href="#">Forgot Password?</a>
-            </div>
-            <li>
-              <hr />
-              <div class="items">
-                <a href="#">
-                  <div class="item">
-                    <img
-                      src="https://outandaboutnow.com/wp-content/uploads/2021/01/f_logo_RGB-Hex-Blue_512.png"
-                      alt="facebook"
-                    />
-                    Facebook
-                  </div>
-                </a>
-                <a href="#">
-                  <div class="item">
-                    <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png"
-                      alt="facebook"
-                    />
-                    Google
-                  </div>
-                </a>
-                <a href="#">
-                  <div class="item">
-                    <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/814px-Apple_logo_black.svg.png"
-                      alt="facebook"
-                    />
-                    Apple
-                  </div>
-                </a>
-              </div>
-            </li>
-            <li>
-              New User?
-              <router-link :to="'/register'">
-                <b>Sign Up</b>
-              </router-link>
-            </li>
-          </ul>
-        </div>
-        <div class="form-footer"></div>
+    <div class="form">
+      <div class="form-header">
+        <div class="title">Log In</div>
       </div>
+      <div :class="error_message ? 'error-message-show' : 'error-message-hide'">
+        Invalid username and password.
+      </div>
+      <div class="form-body">
+        <ul>
+          <li>
+            <input
+              v-model="email"
+              type="email"
+              id=""
+              name=""
+              autofocus=""
+              autocapitalize="none"
+              required=""
+              placeholder="Email"
+              maxlength="20"
+            />
+          </li>
+          <li>
+            <input
+              v-model="password"
+              :type="eye ? open_eye_pass : close_eye_pass"
+              name=""
+              required=""
+              placeholder="Password"
+              maxlength="20"
+            />
+            <i
+              @click="eye = !eye"
+              :class="eye ? close_eye : open_eye"
+              id="togglePassword"
+            ></i>
+          </li>
+          <li>
+            <button @click="showInput()" type="">LOG IN</button>
+          </li>
+          <div class="password-forgot">
+            <a href="#">Forgot Password?</a>
+          </div>
+          <li>
+            <hr />
+            <div class="items">
+              <a href="#">
+                <div class="item">
+                  <img
+                    src="https://outandaboutnow.com/wp-content/uploads/2021/01/f_logo_RGB-Hex-Blue_512.png"
+                    alt="facebook"
+                  />
+                  Facebook
+                </div>
+              </a>
+              <a href="#">
+                <div class="item">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png"
+                    alt="facebook"
+                  />
+                  Google
+                </div>
+              </a>
+              <a href="#">
+                <div class="item">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/814px-Apple_logo_black.svg.png"
+                    alt="facebook"
+                  />
+                  Apple
+                </div>
+              </a>
+            </div>
+          </li>
+          <li>
+            New User?
+            <router-link :to="'/register'">
+              <b>Sign Up</b>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+      <div class="form-footer"></div>
     </div>
   </body>
   <Footer />
@@ -156,12 +152,6 @@ export default {
   margin: 0;
   text-decoration: none;
   list-style: none;
-}
-
-.content {
-  background-color: rgb(247, 247, 247);
-  overflow: hidden;
-  margin: auto;
 }
 
 .form {
