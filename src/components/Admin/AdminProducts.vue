@@ -41,6 +41,7 @@
                 }}
               </div>
               <!-- <div class="price">{{ product.COLOR }}</div> -->
+              <!-- <div>{{ product.DESCRIPTION }}</div> -->
             </div>
           </div>
         </div>

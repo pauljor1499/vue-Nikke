@@ -40,7 +40,13 @@
       </div>
       <div class="field">
         <label for="itemDescription">Description</label>
-        <textarea name="" id="itemDescription" cols="0" rows="5" />
+        <textarea
+          v-model="product_description"
+          name=""
+          id="itemDescription"
+          cols="0"
+          rows="5"
+        />
       </div>
     </div>
     <div class="card-footer">
@@ -66,6 +72,7 @@ export default {
     let product_type = ref("");
     let product_price = ref(0);
     let product_color = ref("");
+    let product_description = ref("");
 
     let PRODUCTS = API.prototype.getProducts();
     let lastIndex_ByID =
@@ -77,7 +84,7 @@ export default {
       TYPE: product_type,
       PRICE: product_price,
       COLOR: product_color,
-      DESCRIPTION: "",
+      DESCRIPTION: product_description,
       IMAGE: "default_image.png",
     };
 
@@ -88,6 +95,7 @@ export default {
       product_type,
       product_price,
       product_color,
+      product_description,
       new_product,
     };
   },
