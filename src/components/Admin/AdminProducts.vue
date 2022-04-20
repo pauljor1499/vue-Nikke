@@ -2,7 +2,13 @@
   <body>
     <div class="list">
       <div class="header">
-        <input type="text" name="" id="" placeholder="Search" />
+        <input
+          v-model="search"
+          type="text"
+          name=""
+          id=""
+          placeholder="Search"
+        />
         <select name="" id="filter">
           <option value="featured">Featured</option>
           <option value="newest">Newest</option>
@@ -22,7 +28,7 @@
           <h2>No Products Available</h2>
         </div>
         <div :class="sidebar_status ? 'items' : 'items-5'">
-          <div class="item" v-for="product in PRODUCTS" :key="product">
+          <div class="item" v-for="product in search_product" :key="product">
             <div class="item-content">
               <img
                 :src="require(`../../assets/landing_page/${product.IMAGE}`)"
@@ -51,6 +57,7 @@
   </body>
 </template>
 <script>
+import { computed, ref } from "@vue/runtime-core";
 import { API } from "../../api/ProductList.js";
 import AddNewProduct from "../Modal/AddNewProduct.vue";
 
@@ -62,8 +69,19 @@ export default {
   setup() {
     let PRODUCTS = API.prototype.getProducts();
 
+    const search = ref("");
+
+    const search_product = computed(() => {
+      var output2 = PRODUCTS.value.filter((product) =>
+        product.NAME.toLowerCase().includes(search.value)
+      );
+      return output2;
+    });
+
     return {
       PRODUCTS,
+      search,
+      search_product,
     };
   },
 };
