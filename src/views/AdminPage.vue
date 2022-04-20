@@ -238,7 +238,7 @@ export default {
 .container {
   display: flex;
   background-color: hsl(0, 0%, 95%);
-  height: 750px;
+  height: 100vh;
 }
 
 .pages {

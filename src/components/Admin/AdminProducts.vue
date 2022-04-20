@@ -22,11 +22,25 @@
         </div>
         <div
           :class="
-            PRODUCTS.length === 0 ? 'empty-message-show' : 'empty-message-hide'
+            PRODUCTS.length === 0 || search_product == ''
+              ? 'error-message-show'
+              : 'error-message-hide'
           "
         >
-          <h2>No Products Available</h2>
+          <div :class="PRODUCTS.length === 0 ? 'message-show' : 'message-hide'">
+            <h2>No products available.</h2>
+          </div>
+          <div
+            :class="
+              PRODUCTS.length != 0 && search_product == ''
+                ? 'message-show'
+                : 'message-hide'
+            "
+          >
+            <h2>No product match your search.</h2>
+          </div>
         </div>
+
         <div :class="sidebar_status ? 'items' : 'items-5'">
           <div class="item" v-for="product in search_product" :key="product">
             <div class="item-content">
@@ -75,6 +89,7 @@ export default {
       var output2 = PRODUCTS.value.filter((product) =>
         product.NAME.toLowerCase().includes(search.value)
       );
+
       return output2;
     });
 
@@ -129,11 +144,23 @@ export default {
   margin-bottom: 50px;
 }
 
-.content .empty-message-show {
+.content .error-message-show,
+.content .invalid-search-show {
+  margin-top: 25vh;
+  margin-bottom: 25vh;
   display: block;
 }
 
-.content .empty-message-hide {
+.content .error-message-hide,
+.content .invalid-search-hide {
+  display: none;
+}
+
+.content .message-show {
+  display: block;
+}
+
+.content .message-hide {
   display: none;
 }
 
