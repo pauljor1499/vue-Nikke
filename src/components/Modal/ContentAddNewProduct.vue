@@ -11,6 +11,13 @@
         <i class="fa-solid fa-circle-xmark fa-2x"></i>
       </n-button>
     </div>
+    <div class="error-message-show" v-show="invalid_name">
+      <span>• Invalid name input.</span>
+      <span>• Invalid type input.</span>
+      <span>• Invalid price input.</span>
+      <span>• Invalid color input.</span>
+      <span>• Invalid description input.</span>
+    </div>
     <div class="card-body">
       <div class="field">
         <label for="itemName">Name</label>
@@ -67,6 +74,8 @@ import { ref } from "@vue/reactivity";
 import { API } from "../../api/ProductList.js";
 
 export default {
+  props: { invalid_name: Boolean },
+
   setup() {
     let product_name = ref("");
     let product_type = ref("");
@@ -117,6 +126,15 @@ export default {
 
 .n-card .card-header .n-button {
   float: right;
+}
+
+.error-message-show {
+  display: grid;
+  padding: 6px;
+  color: red;
+  background-color: rgb(255, 239, 239);
+  border: 0.5px solid rgb(250, 160, 160);
+  margin-top: 25px;
 }
 
 .n-card .card-body {

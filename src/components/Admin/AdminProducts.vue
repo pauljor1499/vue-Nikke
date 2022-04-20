@@ -40,7 +40,6 @@
             <h2>No product match your search.</h2>
           </div>
         </div>
-
         <div :class="sidebar_status ? 'items' : 'items-5'">
           <div class="item" v-for="product in search_product" :key="product">
             <div class="item-content">

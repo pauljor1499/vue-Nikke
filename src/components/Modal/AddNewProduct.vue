@@ -4,6 +4,7 @@
     <ContentAddNewProduct
       @click_closeModal="showModal = false"
       @click_addNewProduct="addNewProduct($event) ? (showModal = false) : ''"
+      :invalid_name="valid_name"
     />
   </n-modal>
 </template>
@@ -18,7 +19,9 @@ export default defineComponent({
   components: { ContentAddNewProduct },
 
   setup() {
-    var showModal = ref(false);
+    let showModal = ref(false);
+
+    let valid_name = ref(true);
 
     function addNewProduct(new_product) {
       API.prototype.addNewProduct(new_product);
@@ -28,6 +31,7 @@ export default defineComponent({
     return {
       showModal,
       addNewProduct,
+      valid_name,
     };
   },
 });
