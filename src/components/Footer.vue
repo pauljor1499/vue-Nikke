@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div>&copy;Sample Website ONLY</div>
+      <div>&copy;Made by Paul Jor | Ecommerce site Project</div>
     </div>
   </footer>
 </template>

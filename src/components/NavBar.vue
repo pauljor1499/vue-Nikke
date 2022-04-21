@@ -19,8 +19,8 @@
             size="medium"
             id="loginBtn"
             style="margin: 10px"
-            >Log In</n-button
-          >
+            >Log In
+          </n-button>
         </router-link>
         <router-link :to="'/register'">
           <n-button
@@ -30,8 +30,8 @@
             id="signupBtn"
             style="margin: 10px; color: #253759"
             ghost
-            >Sign Up</n-button
-          >
+            >Sign Up
+          </n-button>
         </router-link>
       </ul>
     </div>

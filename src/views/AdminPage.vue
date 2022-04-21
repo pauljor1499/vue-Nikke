@@ -159,7 +159,7 @@ export default {
 .sidebar {
   background-color: white;
   width: 320px;
-  height: 100%;
+  height: 100vh;
 }
 
 .sidebar .profile {

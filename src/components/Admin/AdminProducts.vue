@@ -42,26 +42,28 @@
         </div>
         <div :class="sidebar_status ? 'items' : 'items-5'">
           <div class="item" v-for="product in search_product" :key="product">
-            <div class="item-content">
-              <img
-                :src="require(`../../assets/landing_page/${product.IMAGE}`)"
-                :alt="`${product.IMAGE}`"
-              />
-              <!-- <div class="id">{{ product.ID }}</div> -->
-              <div class="name">{{ product.NAME }}</div>
-              <div class="type">{{ product.TYPE }}</div>
-              <div class="price">
-                <!-- en-US means to have commas -->
-                {{
-                  product.PRICE.toLocaleString("en-US", {
-                    style: "currency",
-                    currency: "PHP",
-                  })
-                }}
+            <router-link :to="'/'">
+              <div class="item-content">
+                <img
+                  :src="require(`../../assets/landing_page/${product.IMAGE}`)"
+                  :alt="`${product.IMAGE}`"
+                />
+                <!-- <div class="id">{{ product.ID }}</div> -->
+                <div class="name">{{ product.NAME }}</div>
+                <div class="type">{{ product.TYPE }}</div>
+                <div class="price">
+                  <!-- en-US means to have commas -->
+                  {{
+                    product.PRICE.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "PHP",
+                    })
+                  }}
+                </div>
+                <!-- <div class="price">{{ product.COLOR }}</div> -->
+                <!-- <div>{{ product.DESCRIPTION }}</div> -->
               </div>
-              <!-- <div class="price">{{ product.COLOR }}</div> -->
-              <!-- <div>{{ product.DESCRIPTION }}</div> -->
-            </div>
+            </router-link>
           </div>
         </div>
       </div>
