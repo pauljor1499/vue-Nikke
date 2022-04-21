@@ -5,8 +5,8 @@
       <div class="form-header">
         <div class="title">Log In</div>
       </div>
-      <div :class="error_message ? 'error-message-show' : 'error-message-hide'">
-        Invalid username and password.
+      <div v-show="error_message" class="error-message-show">
+        • Invalid username and password.
       </div>
       <div class="form-body">
         <ul>
@@ -180,6 +180,7 @@ export default {
   border: 0.5px solid rgb(250, 160, 160);
   background-color: rgb(255, 239, 239);
   margin-top: 25px;
+  text-align: left;
 }
 
 .form-body {
@@ -252,13 +253,5 @@ export default {
 
 .form-body .items a:hover {
   background-color: rgb(245, 245, 245);
-}
-
-.error-message-show {
-  display: block;
-}
-
-.error-message-hide {
-  display: none;
 }
 </style>

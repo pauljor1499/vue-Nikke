@@ -1,7 +1,9 @@
 <template>
   <nav>
     <div class="title">
-      <a href="/"><h1 style="color: black">Nikke</h1></a>
+      <router-link :to="'/register'">
+        <h1 style="color: black">Nikke</h1>
+      </router-link>
     </div>
     <div class="actions">
       <ul>
