@@ -42,7 +42,7 @@
         </div>
         <div :class="sidebar_status ? 'items' : 'items-5'">
           <div class="item" v-for="product in search_product" :key="product">
-            <router-link :to="'/'">
+            <router-link :to="{ name: 'Select', params: { id: product.ID } }">
               <div class="item-content">
                 <img
                   :src="require(`../../assets/landing_page/${product.IMAGE}`)"
@@ -87,11 +87,11 @@ export default {
     const search = ref("");
 
     const search_product = computed(() => {
-      var output2 = PRODUCTS.value.filter((product) =>
+      var output = PRODUCTS.value.filter((product) =>
         product.NAME.toLowerCase().includes(search.value)
       );
 
-      return output2;
+      return output;
     });
 
     return {

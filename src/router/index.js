@@ -41,6 +41,7 @@ const routes = [
     path: "/select/:id",
     name: "Select",
     component: Select,
+    props: true,
   },
 ];
 

@@ -1,24 +1,33 @@
 <template>
+  <NavBar />
   <body>
-    <div class="container">
+    <!-- {{ $route.params.id }} -->
+    <div class="container" v-for="product in selected_product" :key="product">
       <div class="photos">
         <div class="item">
           <img
-            src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/b5d338dd-58b5-4134-8951-692c89477116/air-zoom-pegasus-39-road-running-shoes-kmZSD6.png"
-            alt=""
+            :src="require(`../../assets/landing_page/${product.IMAGE}`)"
+            :alt="`${product.IMAGE}`"
           />
         </div>
         <div class="item">
           <img
-            src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/70fdfeea-35c1-4fd6-8012-cd04e1231ecd/air-zoom-pegasus-39-road-running-shoes-kmZSD6.png"
-            alt=""
+            :src="require(`../../assets/landing_page/${product.IMAGE2}`)"
+            :alt="`${product.IMAGE}`"
           />
         </div>
       </div>
       <div class="details">
-        <div class="item-name">Nike Air Zoom Pegasus 39</div>
-        <div class="item-type">Men's Road Running Shoes</div>
-        <div class="item-price">₱6,595</div>
+        <div class="item-name">{{ product.NAME }}</div>
+        <div class="item-type">{{ product.TYPE }}</div>
+        <div class="item-price">
+          {{
+            product.PRICE.toLocaleString("en-US", {
+              style: "currency",
+              currency: "PHP",
+            })
+          }}
+        </div>
         <div class="description">
           Running is your daily ritual, with every step taking you closer to
           your personal goal. Let the Nike Air Zoom Pegasus 39 help you ascend
@@ -51,13 +60,37 @@
 </template>
 <script>
 import Footer from "../Footer.vue";
+import NavBar from "../NavBar.vue";
+import { API } from "../../api/ProductList.js";
+import { computed } from "@vue/reactivity";
 
 export default {
   components: {
     Footer,
+    NavBar,
   },
 
-  setup() {},
+  props: {
+    id: {
+      require: true,
+    },
+  },
+
+  setup(props) {
+    let PRODUCTS = API.prototype.getProducts();
+
+    // alert(props.id);
+
+    const selected_product = computed(() => {
+      var output = PRODUCTS.value.filter((product) =>
+        product.ID.toString().includes(props.id)
+      );
+
+      return output;
+    });
+
+    return { PRODUCTS, selected_product };
+  },
 };
 </script>
 <style scoped>
@@ -97,6 +130,8 @@ export default {
 }
 
 .details .item-name {
+  font-weight: bold;
+  line-height: 1;
   font-size: 30px;
 }
 
