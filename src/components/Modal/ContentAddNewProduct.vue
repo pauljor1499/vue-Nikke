@@ -81,7 +81,7 @@
 </template>
 <script>
 import { ref } from "@vue/reactivity";
-import { API } from "../../api/ProductList.js";
+import { Product_Service } from "../../api/ProductList.js";
 
 export default {
   props: {
@@ -99,7 +99,7 @@ export default {
     let product_color = ref("");
     let product_description = ref("");
 
-    let PRODUCTS = API.prototype.getProducts();
+    let PRODUCTS = Product_Service.prototype.getProducts();
     let lastIndex_ByID =
       parseInt(PRODUCTS.value[PRODUCTS.value.length - 1].ID) + 1;
 
@@ -111,6 +111,7 @@ export default {
       COLOR: product_color,
       DESCRIPTION: product_description,
       IMAGE: "default_image.png",
+      IMAGE2: "default_image.png",
     };
 
     return {

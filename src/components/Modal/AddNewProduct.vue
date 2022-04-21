@@ -15,7 +15,7 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-import { API } from "../../api/ProductList.js";
+import { Product_Service } from "../../api/ProductList.js";
 import ContentAddNewProduct from "./ContentAddNewProduct.vue";
 
 export default defineComponent({
@@ -69,7 +69,7 @@ export default defineComponent({
         !error_color.value &&
         !error_description.value
       ) {
-        API.prototype.addNewProduct(new_product);
+        Product_Service.prototype.addNewProduct(new_product);
         return true;
       }
       return false;

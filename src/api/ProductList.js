@@ -58,7 +58,7 @@ export let products = ref([
   },
 ]);
 
-export class API {
+export class Product_Service {
   getProducts() {
     return products;
   }

@@ -29,14 +29,7 @@
           }}
         </div>
         <div class="description">
-          Running is your daily ritual, with every step taking you closer to
-          your personal goal. Let the Nike Air Zoom Pegasus 39 help you ascend
-          to new heights—whether you're training or jogging—with its intuitive
-          design. More lightweight up top than the Pegasus 38 and ideal to wear
-          in any season, it has a supportive sensation to help keep your feet
-          contained, while underfoot cushioning and double Zoom Air units (1
-          more than the Peg 38) give you an extra pop to your step. Your trusted
-          workhorse with wings is back. Time to fly.
+          {{ product.DESCRIPTION }}
         </div>
         <div class="item-size">
           <div class="title">Select Size</div>
@@ -55,13 +48,16 @@
         <button>Buy Product</button>
       </div>
     </div>
+    <div class="show-error-message" v-show="selected_product == ''">
+      <h1>No results found.</h1>
+    </div>
   </body>
   <Footer />
 </template>
 <script>
 import Footer from "../Footer.vue";
 import NavBar from "../NavBar.vue";
-import { API } from "../../api/ProductList.js";
+import { Product_Service } from "../../api/ProductList.js";
 import { computed } from "@vue/reactivity";
 
 export default {
@@ -77,12 +73,12 @@ export default {
   },
 
   setup(props) {
-    let PRODUCTS = API.prototype.getProducts();
+    let PRODUCTS = Product_Service.prototype.getProducts();
 
     // alert(props.id);
 
     const selected_product = computed(() => {
-      var output = API.prototype.searchProductByID(props.id);
+      var output = Product_Service.prototype.searchProductByID(props.id);
 
       return output;
     });
@@ -195,5 +191,18 @@ export default {
   color: white;
   padding: 20px;
   font-size: 18px;
+}
+
+.show-error-message {
+  width: 100%;
+  height: 85vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.show-error-message h1 {
+  font-size: 35px;
 }
 </style>

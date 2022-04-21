@@ -67,7 +67,7 @@
 </template>
 <script>
 import { computed, ref } from "@vue/runtime-core";
-import { API } from "../../api/ProductList.js";
+import { Product_Service } from "../../api/ProductList.js";
 import AddNewProduct from "../Modal/AddNewProduct.vue";
 
 export default {
@@ -76,7 +76,7 @@ export default {
   props: { sidebar_status: Boolean },
 
   setup() {
-    let PRODUCTS = API.prototype.getProducts();
+    let PRODUCTS = Product_Service.prototype.getProducts();
 
     const search = ref("");
 
@@ -89,7 +89,7 @@ export default {
     // });
 
     const search_product = computed(() => {
-      var output = API.prototype.searchProductByName(search.value);
+      var output = Product_Service.prototype.searchProductByName(search.value);
 
       return output;
     });
