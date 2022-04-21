@@ -3,30 +3,36 @@
     <div class="title">
       <a href="/"><h1 style="color: black">Nikke</h1></a>
     </div>
-    <ul>
-      <router-link :to="'/register'">
-        <n-button
-          color="#253759"
-          type="default"
-          size="medium"
-          id="signupBtn"
-          style="margin: 10px; color: #253759"
-          ghost
-          >Sign Up</n-button
-        >
-      </router-link>
-      <router-link :to="'/login'">
-        <n-button color="black" size="medium" id="loginBtn" style="margin: 10px"
-          >Log In</n-button
-        >
-      </router-link>
-      <li><a class="vl">|</a></li>
-      <li><a href="#">SNKRS</a></li>
-      <li><a href="#">Sale</a></li>
-      <li><a href="#">Kids</a></li>
-      <li><a href="#">Women</a></li>
-      <li><a href="#">Men</a></li>
-    </ul>
+    <div class="actions">
+      <ul>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Kids</a></li>
+        <li><a href="#">Sale</a></li>
+        <li><a href="#">SNKRS</a></li>
+        <li><a class="vl">|</a></li>
+        <router-link :to="'/login'">
+          <n-button
+            color="black"
+            size="medium"
+            id="loginBtn"
+            style="margin: 10px"
+            >Log In</n-button
+          >
+        </router-link>
+        <router-link :to="'/register'">
+          <n-button
+            color="#253759"
+            type="default"
+            size="medium"
+            id="signupBtn"
+            style="margin: 10px; color: #253759"
+            ghost
+            >Sign Up</n-button
+          >
+        </router-link>
+      </ul>
+    </div>
   </nav>
   <div class="sub"></div>
 </template>
@@ -47,29 +53,27 @@ export default {};
 nav {
   background-color: white;
   border-bottom: 1px solid rgb(189, 189, 189);
+  overflow: hidden;
 }
 
 nav .title {
   float: left;
-  margin: 5px 0px 0px 5%;
+  margin-left: 5%;
 }
 
-nav h1 {
-  font-size: 30px;
+nav .title h1 {
+  font-size: 35px;
 }
 
 nav ul {
-  overflow: hidden;
+  float: right;
+  display: flex; /*align list */
   font-size: 18px;
   margin-right: 5%;
 }
 
-nav ul li {
-  float: right;
-}
-
 nav ul li a {
-  float: left;
+  float: right;
   padding: 14px 16px;
   color: black;
   border-bottom: 2px solid white;
