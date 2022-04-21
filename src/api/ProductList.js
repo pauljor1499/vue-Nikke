@@ -26,7 +26,7 @@ export let products = ref([
   {
     ID: 3,
     NAME: "Nike Air Zoom Pegasus 39",
-    TYPE: "Women's Road Running Shoes",
+    TYPE: "Women's Running Shoes",
     PRICE: 6595.0,
     COLOR: "blue",
     DESCRIPTION:
@@ -65,5 +65,19 @@ export class API {
 
   addNewProduct(new_product) {
     products.value.push(new_product);
+  }
+
+  searchProductByID(product_id) {
+    var output = products.value.filter((product) =>
+      product.ID.toString().includes(product_id)
+    );
+    return output;
+  }
+
+  searchProductByName(product_name) {
+    var output = products.value.filter((product) =>
+      product.NAME.toLowerCase().includes(product_name)
+    );
+    return output;
   }
 }

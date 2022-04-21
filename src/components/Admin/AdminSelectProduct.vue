@@ -82,9 +82,7 @@ export default {
     // alert(props.id);
 
     const selected_product = computed(() => {
-      var output = PRODUCTS.value.filter((product) =>
-        product.ID.toString().includes(props.id)
-      );
+      var output = API.prototype.searchProductByID(props.id);
 
       return output;
     });

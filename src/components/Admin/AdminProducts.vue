@@ -9,12 +9,6 @@
           id=""
           placeholder="Search"
         />
-        <select name="" id="filter">
-          <option value="featured">Featured</option>
-          <option value="newest">Newest</option>
-          <option value="high">Price: High-Low</option>
-          <option value="low">Price: Low-High</option>
-        </select>
       </div>
       <div class="content">
         <div class="actions">
@@ -86,10 +80,16 @@ export default {
 
     const search = ref("");
 
+    // const search_product = computed(() => {
+    //   var output = PRODUCTS.value.filter((product) =>
+    //     product.NAME.toLowerCase().includes(search.value)
+    //   );
+
+    //   return output;
+    // });
+
     const search_product = computed(() => {
-      var output = PRODUCTS.value.filter((product) =>
-        product.NAME.toLowerCase().includes(search.value)
-      );
+      var output = API.prototype.searchProductByName(search.value);
 
       return output;
     });
