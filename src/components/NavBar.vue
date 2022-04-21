@@ -1,6 +1,8 @@
 <template>
   <nav>
-    <a href="/"><h1 style="color: black">Nikke</h1></a>
+    <div class="title">
+      <a href="/"><h1 style="color: black">Nikke</h1></a>
+    </div>
     <ul>
       <router-link :to="'/register'">
         <n-button
@@ -47,9 +49,12 @@ nav {
   border-bottom: 1px solid rgb(189, 189, 189);
 }
 
-nav h1 {
+nav .title {
   float: left;
   margin: 5px 0px 0px 5%;
+}
+
+nav h1 {
   font-size: 30px;
 }
 
@@ -59,16 +64,20 @@ nav ul {
   margin-right: 5%;
 }
 
-nav ul .n-button {
+nav ul li {
   float: right;
-  padding: 10px;
 }
 
 nav ul li a {
-  float: right;
+  float: left;
   padding: 14px 16px;
   color: black;
   border-bottom: 2px solid white;
+}
+
+nav ul .n-button {
+  float: right;
+  padding: 10px;
 }
 
 nav ul li a:hover:not(.active, .vl) {
