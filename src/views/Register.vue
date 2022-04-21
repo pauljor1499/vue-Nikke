@@ -5,7 +5,7 @@
       <div class="form-header">
         <div class="title">Sign Up</div>
       </div>
-      <div class="error-message">Invalid username and password.</div>
+      <div class="error-message">• Invalid username and password.</div>
       <div class="form-body">
         <ul>
           <form action="#">
@@ -165,6 +165,7 @@ export default {
   border: 0.5px solid rgb(250, 160, 160);
   background-color: rgb(255, 239, 239);
   margin-top: 25px;
+  text-align: left;
 }
 
 .form-body {

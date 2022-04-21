@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="title">
-      <router-link :to="'/register'">
+      <router-link :to="'/'">
         <h1 style="color: black">Nikke</h1>
       </router-link>
     </div>
