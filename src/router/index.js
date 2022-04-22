@@ -2,8 +2,10 @@ import { createRouter, createWebHistory } from "vue-router";
 import LandingPage from "../views/LandingPage.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
-import Products from "../views/ProductList.vue";
 import Admin from "../views/AdminPage.vue";
+import AdminDashboard from "../components/Admin/AdminDashboard.vue";
+import AdminProducts from "../components/Admin/AdminProducts.vue";
+
 import Select from "../components/Admin/AdminSelectProduct.vue";
 
 const routes = [
@@ -26,19 +28,26 @@ const routes = [
   },
 
   {
-    path: "/products",
-    name: "Products",
-    component: Products,
-  },
-
-  {
     path: "/admin",
     name: "Admin",
     component: Admin,
+    redirect: "dashboard",
+    children: [
+      {
+        path: "dashboard",
+        name: "Dashboard",
+        component: AdminDashboard,
+      },
+      {
+        path: "products",
+        name: "Products",
+        component: AdminProducts,
+      },
+    ],
   },
 
   {
-    path: "/select/:id",
+    path: "/admin/products/select/:id",
     name: "Select",
     component: Select,
     props: true,

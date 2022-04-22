@@ -34,7 +34,7 @@
             <h2>No product match your search.</h2>
           </div>
         </div>
-        <div :class="sidebar_status ? 'items' : 'items-5'">
+        <div class="items">
           <div class="item" v-for="product in search_product" :key="product">
             <router-link :to="{ name: 'Select', params: { id: product.ID } }">
               <div class="item-content">
@@ -79,14 +79,6 @@ export default {
     let PRODUCTS = Product_Service.prototype.getProducts();
 
     const search = ref("");
-
-    // const search_product = computed(() => {
-    //   var output = PRODUCTS.value.filter((product) =>
-    //     product.NAME.toLowerCase().includes(search.value)
-    //   );
-
-    //   return output;
-    // });
 
     const search_product = computed(() => {
       var output = Product_Service.prototype.searchProductByName(search.value);
@@ -172,12 +164,12 @@ export default {
   row-gap: 40px;
 }
 
-.content .items-5 {
+/* .content .items-5 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   column-gap: 20px;
   row-gap: 40px;
-}
+} */
 
 .content .item {
   width: 100%;

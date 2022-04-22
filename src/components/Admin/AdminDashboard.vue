@@ -4,7 +4,7 @@
       <div class="container-head">
         <h1>Welcome to your Dashboard!</h1>
       </div>
-      <div :class="sidebar_status ? 'cards-4' : 'cards-5'">
+      <div class="cards-4">
         <div class="card">
           <n-card
             title="Product List"
@@ -106,12 +106,12 @@ export default {
   padding: 20px;
 }
 
-.cards-5 {
+/* .cards-5 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   column-gap: 20px;
   padding: 20px;
-}
+} */
 
 .card .calendar {
   display: flex;

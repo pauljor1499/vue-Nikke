@@ -26,7 +26,6 @@
       <span v-show="invalid_price">• Invalid price input.</span>
       <span v-show="invalid_color">• Invalid color input.</span>
       <span v-show="invalid_description">• Invalid description input.</span>
-      <!-- <span v-show="invalid_name">• Invalid name input.</span> -->
     </div>
     <div class="card-body">
       <div class="field">

@@ -18,35 +18,23 @@
         <hr />
         <ul>
           <li>
-            <a
-              href="#"
-              :class="page_status == 'dashboard' ? 'active' : ''"
-              @click="click_dashboardPage()"
-            >
+            <router-link to="/admin/dashboard" class="nav">
               <div>
                 <span class="icon"><i class="fas fa-home"></i></span>
                 <span class="item">Dashboard</span>
               </div>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a
-              href="#"
-              :class="page_status == 'products' ? 'active' : ''"
-              @click="click_productsPage()"
-            >
+            <router-link to="/admin/products" class="nav">
               <div>
                 <span class="icon"><i class="fas fa-desktop"></i></span>
                 <span class="item">Products</span>
               </div>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a
-              href="#"
-              :class="page_status == 'users' ? 'active' : ''"
-              @click="click_usersPage()"
-            >
+            <a href="#">
               <div>
                 <span class="icon"><i class="fas fa-user-friends"></i></span>
                 <span class="item">Users</span>
@@ -54,11 +42,7 @@
             </a>
           </li>
           <li>
-            <a
-              href="#"
-              :class="page_status == 'reports' ? 'active' : ''"
-              @click="click_reportsPage()"
-            >
+            <a href="#">
               <div>
                 <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
                 <span class="item">Reports</span>
@@ -84,13 +68,7 @@
         </button>
       </div>
       <div class="pages">
-        <div :class="page_status == 'dashboard' ? 'page-show' : 'page-hide'">
-          <AdminDashboard :sidebar_status="sidebar_show" />
-        </div>
-        <div :class="page_status == 'products' ? 'page-show' : 'page-hide'">
-          <AdminProducts :sidebar_status="sidebar_show" />
-        </div>
-        <div :class="page_status == 'users' ? 'page-show' : 'page-hide'"></div>
+        <router-view></router-view>
       </div>
     </div>
   </body>
@@ -114,32 +92,8 @@ export default {
   setup() {
     var sidebar_show = ref(true);
 
-    var page_status = ref("dashboard");
-
-    function click_dashboardPage() {
-      page_status.value = "dashboard";
-    }
-
-    function click_productsPage() {
-      page_status.value = "products";
-    }
-
-    function click_usersPage() {
-      page_status.value = "users";
-    }
-
-    function click_reportsPage() {
-      page_status.value = "reports";
-    }
-
     return {
-      app,
       sidebar_show,
-      page_status,
-      click_dashboardPage,
-      click_productsPage,
-      click_usersPage,
-      click_reportsPage,
     };
   },
 };
@@ -156,6 +110,18 @@ export default {
 }
 
 /* side-bar show */
+.router-link-exact-active,
+.router-link-exact-active div {
+  background: black;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.nav:hover {
+  background: black;
+  color: white;
+}
+
 .sidebar {
   background-color: white;
   width: 320px;
@@ -223,16 +189,8 @@ export default {
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-  border-radius: 10px;
   background: black;
-  transition: 0.6s ease-in;
-}
-
-.sidebar ul li a:hover .icon,
-.sidebar ul li a.active .icon,
-.sidebar ul li a:hover .item,
-.sidebar ul li a.active .item {
-  color: white;
+  transition: 0.3s ease;
 }
 
 .container {
@@ -274,7 +232,7 @@ export default {
   background: transparent;
   border: none;
   margin-left: 263px;
-  transition: 0.5s ease-in;
+  transition: 0.5s ease;
 }
 
 .hamburger .button-hide {
@@ -283,7 +241,7 @@ export default {
   background: transparent;
   border: none;
   margin-left: 0px;
-  transition: 0.5s ease-in;
+  transition: 0.5s ease;
 }
 
 .hamburger svg path {
@@ -297,22 +255,22 @@ export default {
 /* svg animation */
 .show {
   transform: rotate(0deg);
-  transition: 0.3s ease-in;
+  transition: 0.3s ease;
 }
 
 .hide {
   transform: rotate(90deg);
-  transition: 0.3s ease-in;
+  transition: 0.3s ease;
 }
 /* svg animation */
 
 .drawerOn {
   margin-left: 0px;
-  transition: 0.5s ease-in;
+  transition: 0.5s ease;
 }
 
 .drawerOff {
   margin-left: -320px;
-  transition: 0.5s ease-in;
+  transition: 0.5s ease;
 }
 </style>
