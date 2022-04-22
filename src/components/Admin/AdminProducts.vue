@@ -158,21 +158,15 @@ export default {
 }
 
 .content .items {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 20px;
-  row-gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 10px;
+  row-gap: 30px;
 }
 
-/* .content .items-5 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  column-gap: 20px;
-  row-gap: 40px;
-} */
-
 .content .item {
-  width: 100%;
+  width: 250px;
+  height: 300px;
   background-color: white;
   border: 1px solid white;
 }

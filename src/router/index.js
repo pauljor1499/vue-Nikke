@@ -5,8 +5,8 @@ import Register from "../views/Register.vue";
 import Admin from "../views/AdminPage.vue";
 import AdminDashboard from "../components/Admin/AdminDashboard.vue";
 import AdminProducts from "../components/Admin/AdminProducts.vue";
-
 import Select from "../components/Admin/AdminSelectProduct.vue";
+import SamplePage from "../views/SamplePage.vue";
 
 const routes = [
   {
@@ -31,7 +31,7 @@ const routes = [
     path: "/admin",
     name: "Admin",
     component: Admin,
-    redirect: "dashboard",
+    redirect: "/admin/dashboard",
     children: [
       {
         path: "dashboard",
@@ -51,6 +51,12 @@ const routes = [
     name: "Select",
     component: Select,
     props: true,
+  },
+
+  {
+    path: "/samplepage",
+    name: "SamplePage",
+    component: SamplePage,
   },
 ];
 

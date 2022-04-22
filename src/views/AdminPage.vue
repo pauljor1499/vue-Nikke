@@ -34,20 +34,20 @@
             </router-link>
           </li>
           <li>
-            <a href="#">
+            <router-link to="/admin" class="nav">
               <div>
                 <span class="icon"><i class="fas fa-user-friends"></i></span>
                 <span class="item">Users</span>
               </div>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a href="#">
+            <router-link to="/admin" class="nav">
               <div>
                 <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
                 <span class="item">Reports</span>
               </div>
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>
