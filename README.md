@@ -1,4 +1,4 @@
-# vue-crud
+# Nikke Ecommerce Site
 
 ## Project setup
 ```
