@@ -134,7 +134,7 @@ export default {
 
 .content .actions {
   overflow: hidden;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .content .error-message-show,
@@ -190,6 +190,7 @@ export default {
 .content .item .name,
 .content .item .type,
 .content .item .price {
+  color: black;
   width: 100%;
   text-align: left;
 }

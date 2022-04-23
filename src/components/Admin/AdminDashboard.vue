@@ -6,58 +6,43 @@
       </div>
       <div class="card-content">
         <div class="cards">
-          <div class="card">
-            <n-card
-              title="Product List"
-              :segmented="{
-                content: true,
-                footer: 'soft',
-              }"
-              hoverable
-            >
-              <template #header-extra>View</template>
-              Card Content
-            </n-card>
-          </div>
+          <n-card class="card" hoverable>
+            <div class="header">
+              <div class="title">Product List</div>
+              <div class="action">X</div>
+            </div>
+            <div class="body"></div>
+            <div class="footer"></div>
+          </n-card>
 
-          <div class="card">
-            <n-card
-              title="User List"
-              :segmented="{
-                content: true,
-                footer: 'soft',
-              }"
-              hoverable
-            >
-              <template #header-extra>View</template>
-              Card Content
-            </n-card>
-          </div>
+          <n-card class="card" hoverable>
+            <div class="header">
+              <div class="title">User List</div>
+              <div class="action">X</div>
+            </div>
+            <div class="body"></div>
+            <div class="footer"></div>
+          </n-card>
 
-          <div class="card">
-            <n-card
-              title="Notifications"
-              :segmented="{
-                content: true,
-                footer: 'soft',
-              }"
-              hoverable
-            >
-              <template #header-extra>View</template>
-              Card Content
-            </n-card>
-          </div>
+          <n-card class="card" hoverable>
+            <div class="header">
+              <div class="title">Notifications</div>
+              <div class="action">X</div>
+            </div>
+            <div class="body"></div>
+            <div class="footer"></div>
+          </n-card>
 
-          <div class="card">
-            <n-card class="calendar" hoverable>
+          <n-card class="card" hoverable>
+            <div class="calendar">
               <div class="date">21</div>
               <div>
                 <div class="month">December</div>
                 <div class="year">2018</div>
                 <div class="day">Sunday</div>
               </div>
-            </n-card>
-          </div>
+            </div>
+          </n-card>
         </div>
       </div>
     </div>
@@ -123,6 +108,26 @@ export default {
   cursor: pointer; */
 
   width: 250px;
+}
+
+.card .header {
+  overflow: hidden;
+  padding: 5px;
+  border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+.card .header .title {
+  float: left;
+  font-size: 20px;
+  font-weight: 450;
+}
+
+.card .header .action {
+  float: right;
+}
+
+.card .body {
+  height: 50px;
 }
 
 .card .calendar {

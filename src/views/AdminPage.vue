@@ -19,34 +19,26 @@
         <ul>
           <li>
             <router-link to="/admin/dashboard" class="nav">
-              <div>
-                <span class="icon"><i class="fas fa-home"></i></span>
-                <span class="item">Dashboard</span>
-              </div>
+              <span class="icon"><i class="fas fa-home"></i></span>
+              <span class="item">Dashboard</span>
             </router-link>
           </li>
           <li>
             <router-link to="/admin/products" class="nav">
-              <div>
-                <span class="icon"><i class="fas fa-desktop"></i></span>
-                <span class="item">Products</span>
-              </div>
+              <span class="icon"><i class="fas fa-desktop"></i></span>
+              <span class="item">Products</span>
             </router-link>
           </li>
           <li>
             <router-link to="/admin" class="nav">
-              <div>
-                <span class="icon"><i class="fas fa-user-friends"></i></span>
-                <span class="item">Users</span>
-              </div>
+              <span class="icon"><i class="fas fa-user-friends"></i></span>
+              <span class="item">Users</span>
             </router-link>
           </li>
           <li>
             <router-link to="/admin" class="nav">
-              <div>
-                <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-                <span class="item">Reports</span>
-              </div>
+              <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+              <span class="item">Reports</span>
             </router-link>
           </li>
         </ul>
@@ -111,7 +103,7 @@ export default {
 
 /* side-bar show */
 .router-link-exact-active,
-.router-link-exact-active div {
+.router-link-exact-active span {
   background: black;
   color: white;
   transition: 0.3s ease;
@@ -179,7 +171,7 @@ export default {
   padding: 15px;
 }
 
-.sidebar ul li a div {
+.sidebar ul li a {
   text-align: left;
 }
 

@@ -107,16 +107,16 @@ export default {
   setup() {
     const router = useRouter();
     let USERS = persons;
-    var error_message = ref(false);
+    let error_message = ref(false);
 
-    var eye = ref(true);
-    var open_eye = ref("far fa-eye");
-    var close_eye = ref("far fa-eye-slash");
-    var open_eye_pass = ref("password");
-    var close_eye_pass = ref("text");
+    let eye = ref(true);
+    let open_eye = ref("far fa-eye");
+    let close_eye = ref("far fa-eye-slash");
+    let open_eye_pass = ref("password");
+    let close_eye_pass = ref("text");
 
-    var email = ref(null);
-    var password = ref(null);
+    let email = ref(null);
+    let password = ref(null);
 
     function showInput() {
       if (
