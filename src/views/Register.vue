@@ -5,7 +5,7 @@
       <div class="form-header">
         <div class="title">Sign Up</div>
       </div>
-      <div class="error-message">• Invalid username and password.</div>
+      <!-- <div class="error-message">• Invalid username and password.</div> -->
       <div class="form-body">
         <ul>
           <form action="#">
@@ -119,7 +119,7 @@ export default {
   },
 
   setup() {
-    var eye = ref(true);
+    var eye = ref(false);
 
     var open_eye = ref("far fa-eye");
     var close_eye = ref("far fa-eye-slash");

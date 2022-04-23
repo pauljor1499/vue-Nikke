@@ -47,7 +47,7 @@ const routes = [
   },
 
   {
-    path: "/admin/products/select/:id",
+    path: "/admin/products/:id",
     name: "Select",
     component: Select,
     props: true,

@@ -14,25 +14,14 @@
         <div class="actions">
           <AddNewProduct />
         </div>
+        <div class="error-message-show" v-show="PRODUCTS.length === 0">
+          <h2>No products available.</h2>
+        </div>
         <div
-          :class="
-            PRODUCTS.length === 0 || search_product == ''
-              ? 'error-message-show'
-              : 'error-message-hide'
-          "
+          class="error-message-show"
+          v-show="PRODUCTS.length != 0 && search_product == ''"
         >
-          <div :class="PRODUCTS.length === 0 ? 'message-show' : 'message-hide'">
-            <h2>No products available.</h2>
-          </div>
-          <div
-            :class="
-              PRODUCTS.length != 0 && search_product == ''
-                ? 'message-show'
-                : 'message-hide'
-            "
-          >
-            <h2>No product match your search.</h2>
-          </div>
+          <h2>No product match your search.</h2>
         </div>
         <div class="items">
           <div class="item" v-for="product in search_product" :key="product">
@@ -137,30 +126,20 @@ export default {
   margin-bottom: 25px;
 }
 
-.content .error-message-show,
-.content .invalid-search-show {
+.content .error-message-show {
   margin-top: 25vh;
   margin-bottom: 25vh;
   display: block;
 }
 
-.content .error-message-hide,
-.content .invalid-search-hide {
-  display: none;
-}
-
-.content .message-show {
-  display: block;
-}
-
-.content .message-hide {
+.content .error-message-hide {
   display: none;
 }
 
 .content .items {
   display: flex;
   flex-wrap: wrap;
-  grid-gap: 10px;
+  grid-gap: 12px;
   row-gap: 30px;
 }
 
