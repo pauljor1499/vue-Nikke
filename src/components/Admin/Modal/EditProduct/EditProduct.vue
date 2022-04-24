@@ -3,7 +3,7 @@
   <n-modal v-model:show="showModal" :mask-closable="false">
     <ContentEditProduct
       @click_closeModal="closeModal()"
-      @click_addNewProduct="checkInput($event) ? (showModal = false) : ''"
+      @click_editProduct="checkInput($event) ? (showModal = false) : ''"
       :invalid_name="error_name"
       :invalid_type="error_type"
       :invalid_price="error_price"

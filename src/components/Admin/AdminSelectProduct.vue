@@ -45,10 +45,9 @@
             <li>US 11</li>
           </ul>
         </div>
-        <!-- <button>Buy Product</button> -->
         <div class="button">
           <EditProduct />
-          <button>Delete</button>
+          <DeleteProduct />
         </div>
       </div>
     </div>
@@ -64,12 +63,14 @@ import NavBar from "../NavBar.vue";
 import { Product_Service } from "../../api/ProductList.js";
 import { computed } from "@vue/reactivity";
 import EditProduct from "../Admin/Modal/EditProduct/EditProduct.vue";
+import DeleteProduct from "../Admin/Modal/DeleteProduct/DeleteProduct.vue";
 
 export default {
   components: {
     Footer,
     NavBar,
     EditProduct,
+    DeleteProduct,
   },
 
   props: {

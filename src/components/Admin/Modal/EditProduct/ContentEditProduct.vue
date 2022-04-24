@@ -79,7 +79,7 @@
       <n-button
         class="button-right"
         color="black"
-        @click="this.$emit('click_addNewProduct', update_product)"
+        @click="this.$emit('click_editProduct', update_product)"
         >Update</n-button
       >
     </div>
@@ -110,8 +110,6 @@ export default {
     let product_price = ref(parseInt(PRODUCTS.value[index_byID].PRICE));
     let product_color = ref(PRODUCTS.value[index_byID].COLOR);
     let product_description = ref(PRODUCTS.value[index_byID].DESCRIPTION);
-
-    // alert(PRODUCTS.value[index_byID].TYPE);
 
     let update_product = {
       ID: index_byID + 1,

@@ -87,18 +87,14 @@ export class Product_Service {
     );
     if (index !== -1) {
       products.value.splice(index, 1, updated_product);
-    } else {
     }
   }
 
   deleteProductByID(product_id) {
-    let index = products.value.findIndex(
-      (product) => product.ID === product_id
-    );
+    let index =
+      products.value.findIndex((product) => product.ID === product_id) + 1;
     if (index !== -1) {
       products.value.splice(index, 1);
-      alert("Deleted.");
-    } else {
     }
   }
 }
