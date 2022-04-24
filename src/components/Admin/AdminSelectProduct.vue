@@ -45,7 +45,11 @@
             <li>US 11</li>
           </ul>
         </div>
-        <button>Buy Product</button>
+        <!-- <button>Buy Product</button> -->
+        <div class="button">
+          <EditProduct />
+          <button>Delete</button>
+        </div>
       </div>
     </div>
     <div class="show-error-message" v-show="selected_product == ''">
@@ -59,11 +63,13 @@ import Footer from "../Footer.vue";
 import NavBar from "../NavBar.vue";
 import { Product_Service } from "../../api/ProductList.js";
 import { computed } from "@vue/reactivity";
+import EditProduct from "../Admin/Modal/EditProduct/EditProduct.vue";
 
 export default {
   components: {
     Footer,
     NavBar,
+    EditProduct,
   },
 
   props: {
@@ -183,14 +189,31 @@ export default {
   cursor: pointer;
 }
 
-.details button {
+.details .button {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.details .button button {
   width: 100%;
   margin-top: 10px;
-  border-radius: 20px;
+  border-radius: 40px;
   background-color: black;
   color: white;
   padding: 20px;
   font-size: 18px;
+  cursor: pointer;
+}
+
+.details .button button:hover {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 40px;
+  background-color: gray;
+  color: white;
+  padding: 20px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 .show-error-message {

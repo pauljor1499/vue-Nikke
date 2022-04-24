@@ -80,7 +80,7 @@
 </template>
 <script>
 import { ref } from "@vue/reactivity";
-import { Product_Service } from "../../api/ProductList.js";
+import { Product_Service } from "../../../../api/ProductList.js";
 
 export default {
   props: {

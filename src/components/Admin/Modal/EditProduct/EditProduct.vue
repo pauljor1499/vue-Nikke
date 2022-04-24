@@ -1,5 +1,5 @@
 <template>
-  <n-button @click="showModal = true">Add New Product</n-button>
+  <button @click="showModal = true">Edit Details</button>
   <n-modal v-model:show="showModal" :mask-closable="false">
     <ContentAddNewProduct
       @click_closeModal="showModal = false"
@@ -15,11 +15,11 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-import { Product_Service } from "../../api/ProductList.js";
-import ContentAddNewProduct from "./ContentAddNewProduct.vue";
+import { Product_Service } from "../../../../api/ProductList.js";
+import ContentAddNewProduct from "./ContentEditProduct.vue";
 
 export default defineComponent({
-  name: "CreateNewProduct",
+  name: "EditProduct",
   components: { ContentAddNewProduct },
 
   setup() {
@@ -89,31 +89,14 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.content {
+.details .button button {
   width: 100%;
-  display: grid;
-  grid-template: 1fr;
-  row-gap: 10px;
-}
-
-.content .field {
-  display: grid;
-  grid-template-columns: 0.4fr 1fr;
-}
-
-.content input {
-  padding: 5px;
-}
-
-.n-button {
-  float: left;
-}
-
-.bottom-button .n-button {
-  width: 100px;
-}
-
-.right_button {
-  float: right;
+  margin-top: 10px;
+  border-radius: 40px;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  font-size: 18px;
+  cursor: pointer;
 }
 </style>

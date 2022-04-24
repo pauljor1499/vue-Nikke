@@ -57,7 +57,7 @@
 <script>
 import { computed, ref } from "@vue/runtime-core";
 import { Product_Service } from "../../api/ProductList.js";
-import AddNewProduct from "../Modal/AddNewProduct.vue";
+import AddNewProduct from "../Admin/Modal/AddNewProduct/AddNewProduct.vue";
 
 export default {
   name: "AdminProducts",
