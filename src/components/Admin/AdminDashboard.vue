@@ -4,46 +4,44 @@
       <div class="container-head">
         <h1>Welcome to your Dashboard!</h1>
       </div>
-      <div class="card-content">
-        <div class="cards">
-          <n-card class="card" hoverable>
-            <div class="header">
-              <div class="title">Product List</div>
-              <div class="action">X</div>
-            </div>
-            <div class="body"></div>
-            <div class="footer"></div>
-          </n-card>
+      <div class="cards">
+        <n-card class="card" hoverable>
+          <div class="header">
+            <div class="title">Product List</div>
+            <div class="action">X</div>
+          </div>
+          <div class="body"></div>
+          <div class="footer"></div>
+        </n-card>
 
-          <n-card class="card" hoverable>
-            <div class="header">
-              <div class="title">User List</div>
-              <div class="action">X</div>
-            </div>
-            <div class="body"></div>
-            <div class="footer"></div>
-          </n-card>
+        <n-card class="card" hoverable>
+          <div class="header">
+            <div class="title">User List</div>
+            <div class="action">X</div>
+          </div>
+          <div class="body"></div>
+          <div class="footer"></div>
+        </n-card>
 
-          <n-card class="card" hoverable>
-            <div class="header">
-              <div class="title">Notifications</div>
-              <div class="action">X</div>
-            </div>
-            <div class="body"></div>
-            <div class="footer"></div>
-          </n-card>
+        <n-card class="card" hoverable>
+          <div class="header">
+            <div class="title">Notifications</div>
+            <div class="action">X</div>
+          </div>
+          <div class="body"></div>
+          <div class="footer"></div>
+        </n-card>
 
-          <n-card class="card" hoverable>
-            <div class="calendar">
-              <div class="date">21</div>
-              <div>
-                <div class="month">December</div>
-                <div class="year">2018</div>
-                <div class="day">Sunday</div>
-              </div>
+        <n-card class="card" hoverable>
+          <div class="calendar">
+            <div class="date">21</div>
+            <div>
+              <div class="month">December</div>
+              <div class="year">2018</div>
+              <div class="day">Sunday</div>
             </div>
-          </n-card>
-        </div>
+          </div>
+        </n-card>
       </div>
     </div>
   </body>
@@ -82,31 +80,17 @@ export default {
   float: left;
 }
 
-.container .card-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .cards {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 20px;
-  padding: 20px; */
-
   display: flex;
   flex-wrap: wrap;
   grid-gap: 10px;
   margin-top: -50px;
+
+  align-items: center;
+  justify-content: center;
 }
 
 .card {
-  /* width: 100%;
-  height: 200px;
-  text-align: left;
-  margin-top: -80px;
-  cursor: pointer; */
-
   width: 250px;
 }
 
