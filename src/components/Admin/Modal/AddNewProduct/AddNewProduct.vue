@@ -2,7 +2,7 @@
   <n-button @click="showModal = true">Add New Product</n-button>
   <n-modal v-model:show="showModal" :mask-closable="false">
     <ContentAddNewProduct
-      @click_closeModal="showModal = false"
+      @click_closeModal="closeModal()"
       @click_addNewProduct="checkInput($event) ? (showModal = false) : ''"
       :invalid_name="error_name"
       :invalid_type="error_type"
@@ -75,6 +75,16 @@ export default defineComponent({
       return false;
     }
 
+    function closeModal() {
+      showModal.value = false;
+
+      error_name.value = false;
+      error_type.value = false;
+      error_price.value = false;
+      error_color.value = false;
+      error_description.value = false;
+    }
+
     return {
       showModal,
       checkInput,
@@ -83,6 +93,7 @@ export default defineComponent({
       error_price,
       error_color,
       error_description,
+      closeModal,
     };
   },
 });

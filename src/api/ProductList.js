@@ -80,4 +80,25 @@ export class Product_Service {
     );
     return output;
   }
+
+  updateProductByID(product_id, updated_product) {
+    let index = products.value.findIndex(
+      (product) => product.ID === product_id
+    );
+    if (index !== -1) {
+      products.value.splice(index, 1, updated_product);
+    } else {
+    }
+  }
+
+  deleteProductByID(product_id) {
+    let index = products.value.findIndex(
+      (product) => product.ID === product_id
+    );
+    if (index !== -1) {
+      products.value.splice(index, 1);
+      alert("Deleted.");
+    } else {
+    }
+  }
 }

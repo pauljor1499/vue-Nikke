@@ -1,5 +1,6 @@
 <template>
   <n-card :bordered="false" size="small">
+    <!-- {{ $route.params.id }} -->
     <div class="card-header">
       <div class="title"><h3>Edit Details</h3></div>
       <n-button
@@ -35,6 +36,9 @@
       <div class="field">
         <label for="itemType">Type</label>
         <select v-model="product_type" name="" id="itemType">
+          <option :value="product_type" selected hidden="hidden">
+            {{ product_type }}
+          </option>
           <option value="Men">Men</option>
           <option value="Women">Women</option>
           <option value="Kids">Kids</option>
@@ -48,6 +52,9 @@
       <div class="field">
         <label for="itemColor">Color</label>
         <select v-model="product_color" name="" id="itemColor">
+          <option :value="product_color" selected hidden="hidden">
+            {{ product_color }}
+          </option>
           <option value="Black">Black</option>
           <option value="White">White</option>
           <option value="Gray">Gray</option>
@@ -72,7 +79,7 @@
       <n-button
         class="button-right"
         color="black"
-        @click="this.$emit('click_addNewProduct', new_product)"
+        @click="this.$emit('click_addNewProduct', update_product)"
         >Update</n-button
       >
     </div>
@@ -89,39 +96,45 @@ export default {
     invalid_price: Boolean,
     invalid_color: Boolean,
     invalid_description: Boolean,
+    product_ID: Number,
   },
 
-  setup() {
-    let product_name = ref("");
-    let product_type = ref("");
-    let product_price = ref(0);
-    let product_color = ref("");
-    let product_description = ref("");
-
+  setup(props) {
     let PRODUCTS = Product_Service.prototype.getProducts();
-    let lastIndex_ByID =
-      parseInt(PRODUCTS.value[PRODUCTS.value.length - 1].ID) + 1;
+    let index_byID = props.product_ID - 1;
+    let index_getImage = PRODUCTS.value[index_byID].IMAGE;
+    let index_getImage2 = PRODUCTS.value[index_byID].IMAGE2;
 
-    let new_product = {
-      ID: lastIndex_ByID++,
+    let product_name = ref(PRODUCTS.value[index_byID].NAME);
+    let product_type = ref(PRODUCTS.value[index_byID].TYPE);
+    let product_price = ref(parseInt(PRODUCTS.value[index_byID].PRICE));
+    let product_color = ref(PRODUCTS.value[index_byID].COLOR);
+    let product_description = ref(PRODUCTS.value[index_byID].DESCRIPTION);
+
+    // alert(PRODUCTS.value[index_byID].TYPE);
+
+    let update_product = {
+      ID: index_byID + 1,
       NAME: product_name,
       TYPE: product_type,
       PRICE: product_price,
       COLOR: product_color,
       DESCRIPTION: product_description,
-      IMAGE: "default_image.png",
-      IMAGE2: "default_image.png",
+      IMAGE: index_getImage,
+      IMAGE2: index_getImage2,
     };
 
     return {
       PRODUCTS,
-      lastIndex_ByID,
+      index_byID,
       product_name,
       product_type,
       product_price,
       product_color,
       product_description,
-      new_product,
+      update_product,
+      index_getImage,
+      index_getImage2,
     };
   },
 };
