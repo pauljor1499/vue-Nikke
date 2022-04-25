@@ -8,18 +8,20 @@
       <div
         class="error-message-show"
         v-show="
-          invalid_name ||
-          invalid_type ||
-          invalid_price ||
-          invalid_color ||
-          invalid_description
+          invalid_firstname ||
+          invalid_middlename ||
+          invalid_lastname ||
+          invalid_gender ||
+          invalid_email ||
+          invalid_password
         "
       >
-        <span v-show="invalid_name">• Invalid name input.</span>
-        <span v-show="invalid_type">• Invalid type input.</span>
-        <span v-show="invalid_price">• Invalid price input.</span>
-        <span v-show="invalid_color">• Invalid color input.</span>
-        <span v-show="invalid_description">• Invalid description input.</span>
+        <span v-show="invalid_firstname">• Invalid first name.</span>
+        <span v-show="invalid_middlename">• Invalid middle name.</span>
+        <span v-show="invalid_lastname">• Invalid last name.</span>
+        <span v-show="invalid_gender">• Invalid gender.</span>
+        <span v-show="invalid_email">• Invalid email.</span>
+        <span v-show="invalid_password">• Invalid password.</span>
       </div>
       <div class="form-body">
         <ul>
@@ -134,7 +136,22 @@ export default {
   setup() {
     var eye = ref(false);
 
-    return { eye };
+    let invalid_firstname = ref(true);
+    let invalid_middlename = ref(true);
+    let invalid_lastname = ref(true);
+    let invalid_gender = ref(true);
+    let invalid_email = ref(true);
+    let invalid_password = ref(true);
+
+    return {
+      eye,
+      invalid_firstname,
+      invalid_middlename,
+      invalid_lastname,
+      invalid_gender,
+      invalid_email,
+      invalid_password,
+    };
   },
 };
 </script>
@@ -235,5 +252,15 @@ export default {
 .form-body button:hover {
   background-color: gray;
   cursor: pointer;
+}
+
+.error-message-show {
+  display: grid;
+  text-align: left;
+  padding: 6px;
+  color: red;
+  background-color: rgb(255, 239, 239);
+  border: 0.5px solid rgb(250, 160, 160);
+  margin-top: 25px;
 }
 </style>
