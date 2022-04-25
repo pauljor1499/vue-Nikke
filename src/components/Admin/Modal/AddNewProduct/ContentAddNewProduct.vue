@@ -99,8 +99,14 @@ export default {
     let product_description = ref("");
 
     let PRODUCTS = Product_Service.prototype.getProducts();
-    let lastIndex_ByID =
-      parseInt(PRODUCTS.value[PRODUCTS.value.length - 1].ID) + 1;
+
+    let lastIndex_ByID = 0;
+    if (PRODUCTS.value.length == 0) {
+      lastIndex_ByID = 1;
+    } else {
+      lastIndex_ByID =
+        parseInt(PRODUCTS.value[PRODUCTS.value.length - 1].ID) + 1;
+    }
 
     let new_product = {
       ID: lastIndex_ByID++,

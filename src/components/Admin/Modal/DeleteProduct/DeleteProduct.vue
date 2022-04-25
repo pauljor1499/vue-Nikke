@@ -23,6 +23,7 @@ export default defineComponent({
 
     function deleteProduct(delete_product_ID) {
       Product_Service.prototype.deleteProductByID(delete_product_ID);
+      this.$router.push({ path: "/admin/products" });
       return true;
     }
 
