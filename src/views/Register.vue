@@ -5,99 +5,112 @@
       <div class="form-header">
         <div class="title">Sign Up</div>
       </div>
-      <!-- <div class="error-message">• Invalid username and password.</div> -->
+      <div
+        class="error-message-show"
+        v-show="
+          invalid_name ||
+          invalid_type ||
+          invalid_price ||
+          invalid_color ||
+          invalid_description
+        "
+      >
+        <span v-show="invalid_name">• Invalid name input.</span>
+        <span v-show="invalid_type">• Invalid type input.</span>
+        <span v-show="invalid_price">• Invalid price input.</span>
+        <span v-show="invalid_color">• Invalid color input.</span>
+        <span v-show="invalid_description">• Invalid description input.</span>
+      </div>
       <div class="form-body">
         <ul>
-          <form action="#">
-            <li>
-              <div class="double">
-                <input
-                  type="text"
-                  id="Fname"
-                  name=""
-                  autofocus=""
-                  autocapitalize="none"
-                  required=""
-                  placeholder="First name"
-                  maxlength="20"
-                />
-                <input
-                  type="text"
-                  id="Mname"
-                  name=""
-                  autofocus=""
-                  autocapitalize="none"
-                  required=""
-                  placeholder="Middle name"
-                  maxlength="20"
-                />
-              </div>
-            </li>
-            <li>
-              <div class="double">
-                <input
-                  type="text"
-                  id="Lname"
-                  name=""
-                  autofocus=""
-                  autocapitalize="none"
-                  required=""
-                  placeholder="Last name"
-                  maxlength="20"
-                />
-                <select name="" id="Gender">
-                  <option value="volvo">Male</option>
-                  <option value="saab">Female</option>
-                </select>
-              </div>
-            </li>
-            <li>
-              <div class="single">
-                <input
-                  type="email"
-                  id="Email"
-                  name=""
-                  autofocus=""
-                  autocapitalize="none"
-                  required=""
-                  placeholder="Email"
-                  maxlength="20"
-                />
-              </div>
-            </li>
-            <li>
-              <div class="single">
-                <input
-                  :type="eye ? open_eye_pass : close_eye_pass"
-                  name=""
-                  required=""
-                  placeholder="Password"
-                  maxlength="20"
-                />
-                <i
-                  @click="eye = !eye"
-                  :class="eye ? close_eye : open_eye"
-                  id="togglePassword"
-                ></i>
-              </div>
-            </li>
-            <li>
-              <p>
-                By clicking Sign Up, you agree to our Terms, Data Policy and
-                Cookie Policy. You may receive SMS notifications from us and can
-                opt out at any time.
-              </p>
-            </li>
-            <li>
-              <button type="submit">SIGN IN</button>
-            </li>
-            <li>
-              Already have an account?
-              <router-link :to="'/login'">
-                <b>Log In</b>
-              </router-link>
-            </li>
-          </form>
+          <li>
+            <div class="double">
+              <input
+                type="text"
+                id="Fname"
+                name=""
+                autofocus=""
+                autocapitalize="none"
+                required=""
+                placeholder="First name"
+                maxlength="20"
+              />
+              <input
+                type="text"
+                id="Mname"
+                name=""
+                autofocus=""
+                autocapitalize="none"
+                required=""
+                placeholder="Middle name"
+                maxlength="20"
+              />
+            </div>
+          </li>
+          <li>
+            <div class="double">
+              <input
+                type="text"
+                id="Lname"
+                name=""
+                autofocus=""
+                autocapitalize="none"
+                required=""
+                placeholder="Last name"
+                maxlength="20"
+              />
+              <select name="" id="Gender">
+                <option value="volvo">Male</option>
+                <option value="saab">Female</option>
+              </select>
+            </div>
+          </li>
+          <li>
+            <div class="single">
+              <input
+                type="email"
+                id="Email"
+                name=""
+                autofocus=""
+                autocapitalize="none"
+                required=""
+                placeholder="Email"
+                maxlength="20"
+              />
+            </div>
+          </li>
+          <li>
+            <div class="single">
+              <input
+                :type="eye ? 'text' : 'password'"
+                name=""
+                required=""
+                placeholder="Password"
+                maxlength="20"
+              />
+              <i
+                @click="eye = !eye"
+                :class="eye ? 'far fa-eye' : 'far fa-eye-slash'"
+                id="togglePassword"
+              ></i>
+            </div>
+          </li>
+          <li>
+            <p>
+              By clicking Sign Up, you agree to our Terms, Data Policy and
+              Cookie Policy. You may receive SMS notifications from us and can
+              opt out at any time.
+            </p>
+          </li>
+          <li>
+            <button>SIGN IN</button>
+          </li>
+          <li>
+            Already have an account?
+            <router-link :to="'/login'">
+              <b>Log In</b>
+            </router-link>
+          </li>
         </ul>
       </div>
       <div class="form-footer"></div>
@@ -121,12 +134,7 @@ export default {
   setup() {
     var eye = ref(false);
 
-    var open_eye = ref("far fa-eye");
-    var close_eye = ref("far fa-eye-slash");
-    var open_eye_pass = ref("password");
-    var close_eye_pass = ref("text");
-
-    return { eye, open_eye, close_eye, open_eye_pass, close_eye_pass };
+    return { eye };
   },
 };
 </script>
