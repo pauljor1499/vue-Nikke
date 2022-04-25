@@ -1,0 +1,203 @@
+<template>
+  <n-card :bordered="false" size="small">
+    <!-- {{ $route.params.id }} -->
+    <div class="card-header">
+      <div class="title"><h3>Edit Details</h3></div>
+      <n-button
+        color="black"
+        round
+        @click="this.$emit('click_closeModal')"
+        text
+      >
+        <i class="fa-solid fa-circle-xmark fa-2x"></i>
+      </n-button>
+    </div>
+    <div
+      class="error-message-show"
+      v-show="
+        invalid_name ||
+        invalid_type ||
+        invalid_price ||
+        invalid_color ||
+        invalid_description
+      "
+    >
+      <span v-show="invalid_name">• Invalid name input.</span>
+      <span v-show="invalid_type">• Invalid type input.</span>
+      <span v-show="invalid_price">• Invalid price input.</span>
+      <span v-show="invalid_color">• Invalid color input.</span>
+      <span v-show="invalid_description">• Invalid description input.</span>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <label for="itemName">Name</label>
+        <input v-model="product_name" type="text" name="" id="itemName" />
+      </div>
+      <div class="field">
+        <label for="itemType">Type</label>
+        <select v-model="product_type" name="" id="itemType">
+          <option :value="product_type" selected hidden="hidden">
+            {{ product_type }}
+          </option>
+          <option value="Men">Men</option>
+          <option value="Women">Women</option>
+          <option value="Kids">Kids</option>
+          <option value="SNKRS">SNKRS</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="itemPrice">Price</label>
+        <input v-model="product_price" type="number" name="" id="itemPrice" />
+      </div>
+      <div class="field">
+        <label for="itemColor">Color</label>
+        <select v-model="product_color" name="" id="itemColor">
+          <option :value="product_color" selected hidden="hidden">
+            {{ product_color }}
+          </option>
+          <option value="Black">Black</option>
+          <option value="White">White</option>
+          <option value="Gray">Gray</option>
+          <option value="Blue">Blue</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="itemDescription">Description</label>
+        <textarea
+          v-model="product_description"
+          name=""
+          id="itemDescription"
+          cols="0"
+          rows="5"
+        />
+      </div>
+    </div>
+    <div class="card-footer">
+      <n-button class="button-left" @click="this.$emit('click_closeModal')"
+        >Cancel</n-button
+      >
+      <n-button
+        class="button-right"
+        color="black"
+        @click="this.$emit('click_editProduct', update_product)"
+        >Update</n-button
+      >
+    </div>
+  </n-card>
+</template>
+<script>
+import { ref } from "@vue/reactivity";
+import { Product_Service } from "../../../../api/ProductList.js";
+
+export default {
+  props: {
+    invalid_name: Boolean,
+    invalid_type: Boolean,
+    invalid_price: Boolean,
+    invalid_color: Boolean,
+    invalid_description: Boolean,
+    product_ID: Number,
+  },
+
+  setup(props) {
+    let PRODUCTS = Product_Service.prototype.getProducts();
+    let index_byID = props.product_ID - 1;
+    let index_getImage = PRODUCTS.value[index_byID].IMAGE;
+    let index_getImage2 = PRODUCTS.value[index_byID].IMAGE2;
+
+    let product_name = ref(PRODUCTS.value[index_byID].NAME);
+    let product_type = ref(PRODUCTS.value[index_byID].TYPE);
+    let product_price = ref(parseInt(PRODUCTS.value[index_byID].PRICE));
+    let product_color = ref(PRODUCTS.value[index_byID].COLOR);
+    let product_description = ref(PRODUCTS.value[index_byID].DESCRIPTION);
+
+    let update_product = {
+      ID: index_byID + 1,
+      NAME: product_name,
+      TYPE: product_type,
+      PRICE: product_price,
+      COLOR: product_color,
+      DESCRIPTION: product_description,
+      IMAGE: index_getImage,
+      IMAGE2: index_getImage2,
+    };
+
+    return {
+      PRODUCTS,
+      index_byID,
+      product_name,
+      product_type,
+      product_price,
+      product_color,
+      product_description,
+      update_product,
+      index_getImage,
+      index_getImage2,
+    };
+  },
+};
+</script>
+<style scoped>
+.n-card {
+  padding: 10px;
+  max-width: 450px;
+}
+
+.n-card .card-header {
+  overflow: hidden;
+}
+
+.n-card .card-header .title {
+  float: left;
+}
+
+.n-card .card-header .n-button {
+  float: right;
+}
+
+.error-message-show {
+  display: grid;
+  padding: 6px;
+  color: red;
+  background-color: rgb(255, 239, 239);
+  border: 0.5px solid rgb(250, 160, 160);
+  margin-top: 25px;
+}
+
+.n-card .card-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.n-card .card-body .field {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.n-card .card-body .field input,
+.n-card .card-body .field select,
+.n-card .card-body .field textarea {
+  padding: 5px;
+}
+
+.n-card .card-footer {
+  overflow: hidden;
+}
+
+.n-card .button-left,
+.n-card .button-right {
+  width: 80px;
+  padding: 5px;
+}
+
+.n-card .button-left {
+  float: left;
+}
+
+.n-card .button-right {
+  float: right;
+}
+</style>
