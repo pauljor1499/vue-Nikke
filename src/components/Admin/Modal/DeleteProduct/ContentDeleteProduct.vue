@@ -24,7 +24,7 @@
         color="red"
         @click="this.$emit('click_DeleteProduct', product_ID)"
       >
-        Update
+        Delete
       </n-button>
     </div>
   </n-card>
