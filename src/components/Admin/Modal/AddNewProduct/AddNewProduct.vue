@@ -13,10 +13,7 @@
       :invalid_description="error_description"
     />
   </n-modal>
-  <SuccessToast
-    v-show="product_successfullyAdded"
-    :message="'Product successfully added.'"
-  />
+  <SuccessToast v-show="showToast" :message="'Product successfully added.'" />
 </template>
 
 <script>
@@ -31,7 +28,7 @@ export default defineComponent({
 
   setup() {
     let showModal = ref(false);
-    let product_successfullyAdded = ref(false);
+    let showToast = ref(false);
 
     let error_name = ref(false);
     let error_type = ref(false);
@@ -78,7 +75,7 @@ export default defineComponent({
         !error_description.value
       ) {
         Product_Service.prototype.addNewProduct(new_product);
-        product_successfullyAdded.value = true;
+        showToast.value = true;
         return true;
       }
       return false;
@@ -103,7 +100,7 @@ export default defineComponent({
       error_color,
       error_description,
       closeModal,
-      product_successfullyAdded,
+      showToast,
     };
   },
 });

@@ -2,8 +2,8 @@
   <button @click="showModal = true">Edit Details</button>
   <n-modal v-model:show="showModal" :mask-closable="false">
     <ContentEditProduct
-      @click_closeModal="closeModal()"
-      @click_editProduct="checkInput($event) ? (showModal = false) : ''"
+      @closeModal="closeModal()"
+      @editProductInput="editProductInput($event) ? (showModal = false) : ''"
       :invalid_name="error_name"
       :invalid_type="error_type"
       :invalid_price="error_price"
@@ -12,19 +12,22 @@
       :product_ID="$route.params.id"
     />
   </n-modal>
+  <SuccessToast v-show="showToast" :message="'Product successfully updated.'" />
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
 import { Product_Service } from "../../../../api/ProductList.js";
 import ContentEditProduct from "./ContentEditProduct.vue";
+import SuccessToast from "../../../Popups/SuccessToast.vue";
 
 export default defineComponent({
   name: "EditProduct",
-  components: { ContentEditProduct },
+  components: { ContentEditProduct, SuccessToast },
 
   setup() {
     let showModal = ref(false);
+    let showToast = ref(true);
 
     let error_name = ref(false);
     let error_type = ref(false);
@@ -32,7 +35,7 @@ export default defineComponent({
     let error_color = ref(false);
     let error_description = ref(false);
 
-    function checkInput(update_product) {
+    function editProductInput(update_product) {
       if (update_product.NAME.value == "") {
         error_name.value = true;
       } else {
@@ -74,6 +77,7 @@ export default defineComponent({
           update_product.ID,
           update_product
         );
+        showToast.value = true;
         return true;
       }
       return false;
@@ -91,13 +95,14 @@ export default defineComponent({
 
     return {
       showModal,
-      checkInput,
+      editProductInput,
       error_name,
       error_type,
       error_price,
       error_color,
       error_description,
       closeModal,
+      showToast,
     };
   },
 });

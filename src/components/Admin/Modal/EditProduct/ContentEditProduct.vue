@@ -3,12 +3,7 @@
     <!-- {{ $route.params.id }} -->
     <div class="card-header">
       <div class="title"><h3>Edit Details</h3></div>
-      <n-button
-        color="black"
-        round
-        @click="this.$emit('click_closeModal')"
-        text
-      >
+      <n-button color="black" round @click="this.$emit('closeModal')" text>
         <i class="fa-solid fa-circle-xmark fa-2x"></i>
       </n-button>
     </div>
@@ -73,13 +68,13 @@
       </div>
     </div>
     <div class="card-footer">
-      <n-button class="button-left" @click="this.$emit('click_closeModal')"
+      <n-button class="button-left" @click="this.$emit('closeModal')"
         >Cancel</n-button
       >
       <n-button
         class="button-right"
         color="black"
-        @click="this.$emit('click_editProduct', update_product)"
+        @click="this.$emit('editProductInput', update_product)"
         >Update</n-button
       >
     </div>

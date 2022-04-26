@@ -19,7 +19,6 @@ export default {
 
 .container .message {
   position: absolute;
-  display: block;
   top: 100px;
   right: 20px;
   width: 200px;
@@ -27,7 +26,7 @@ export default {
   z-index: 1;
   border-radius: 5px;
   color: white;
-  background-color: rgb(45, 201, 71);
+  background-color: rgb(201, 45, 45);
 
   animation-name: showup;
   animation-duration: 3s;
