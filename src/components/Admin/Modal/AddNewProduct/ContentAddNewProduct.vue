@@ -2,12 +2,7 @@
   <n-card :bordered="false" size="small">
     <div class="card-header">
       <div class="title"><h3>Add New Product</h3></div>
-      <n-button
-        color="black"
-        round
-        @click="this.$emit('click_closeModal')"
-        text
-      >
+      <n-button color="black" round @click="this.$emit('closeModal')" text>
         <i class="fa-solid fa-circle-xmark fa-2x"></i>
       </n-button>
     </div>
@@ -66,13 +61,13 @@
       </div>
     </div>
     <div class="card-footer">
-      <n-button class="button-left" @click="this.$emit('click_closeModal')"
+      <n-button class="button-left" @click="this.$emit('closeModal')"
         >Cancel</n-button
       >
       <n-button
         class="button-right"
         color="black"
-        @click="this.$emit('click_addNewProduct', new_product)"
+        @click="this.$emit('addNewProductInput', new_product)"
         >Add</n-button
       >
     </div>

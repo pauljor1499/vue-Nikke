@@ -2,8 +2,10 @@
   <n-button @click="showModal = true">Add New Product</n-button>
   <n-modal v-model:show="showModal" :mask-closable="false">
     <ContentAddNewProduct
-      @click_closeModal="closeModal()"
-      @click_addNewProduct="checkInput($event) ? (showModal = false) : ''"
+      @closeModal="closeModal()"
+      @addNewProductInput="
+        addNewProductInput($event) ? (showModal = false) : ''
+      "
       :invalid_name="error_name"
       :invalid_type="error_type"
       :invalid_price="error_price"
@@ -11,19 +13,25 @@
       :invalid_description="error_description"
     />
   </n-modal>
+  <SuccessToast
+    v-show="product_successfullyAdded"
+    :message="'Product successfully added.'"
+  />
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
 import { Product_Service } from "../../../../api/ProductList.js";
 import ContentAddNewProduct from "./ContentAddNewProduct.vue";
+import SuccessToast from "../../../Popups/SuccessToast.vue";
 
 export default defineComponent({
   name: "CreateNewProduct",
-  components: { ContentAddNewProduct },
+  components: { ContentAddNewProduct, SuccessToast },
 
   setup() {
     let showModal = ref(false);
+    let product_successfullyAdded = ref(false);
 
     let error_name = ref(false);
     let error_type = ref(false);
@@ -31,7 +39,7 @@ export default defineComponent({
     let error_color = ref(false);
     let error_description = ref(false);
 
-    function checkInput(new_product) {
+    function addNewProductInput(new_product) {
       if (new_product.NAME.value == "") {
         error_name.value = true;
       } else {
@@ -70,6 +78,7 @@ export default defineComponent({
         !error_description.value
       ) {
         Product_Service.prototype.addNewProduct(new_product);
+        product_successfullyAdded.value = true;
         return true;
       }
       return false;
@@ -87,13 +96,14 @@ export default defineComponent({
 
     return {
       showModal,
-      checkInput,
+      addNewProductInput,
       error_name,
       error_type,
       error_price,
       error_color,
       error_description,
       closeModal,
+      product_successfullyAdded,
     };
   },
 });
