@@ -12,7 +12,6 @@
       :product_ID="$route.params.id"
     />
   </n-modal>
-  <SuccessToast v-show="showToast" :message="'Product successfully updated.'" />
 </template>
 
 <script>
@@ -27,7 +26,6 @@ export default defineComponent({
 
   setup() {
     let showModal = ref(false);
-    let showToast = ref(true);
 
     let error_name = ref(false);
     let error_type = ref(false);
@@ -77,7 +75,6 @@ export default defineComponent({
           update_product.ID,
           update_product
         );
-        showToast.value = true;
         return true;
       }
       return false;
@@ -102,7 +99,6 @@ export default defineComponent({
       error_color,
       error_description,
       closeModal,
-      showToast,
     };
   },
 });
@@ -118,5 +114,38 @@ export default defineComponent({
   padding: 20px;
   font-size: 18px;
   cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.container .message {
+  position: absolute;
+  display: block;
+  top: 100px;
+  right: 20px;
+  width: 200px;
+  padding: 20px;
+  z-index: 1;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(45, 201, 71);
+
+  animation-name: showup;
+  animation-duration: 3s;
+  opacity: 0;
+}
+
+@keyframes showup {
+  from {
+    opacity: 1;
+    right: 20px;
+  }
+  to {
+    opacity: 1;
+    right: 20px;
+  }
 }
 </style>

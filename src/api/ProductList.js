@@ -94,9 +94,8 @@ export class Product_Service {
   }
 
   deleteProductByID(product_id) {
-    let index =
-      products.value.findIndex((product) => product.ID === product_id) + 1;
-    if (index !== -1) {
+    let index = products.value.findIndex((product) => product.ID == product_id);
+    if (index > -1) {
       products.value.splice(index, 1);
       return true;
     }
