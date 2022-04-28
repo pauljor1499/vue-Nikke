@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="toast-container">
     <div class="message">{{ message }}</div>
   </div>
 </template>
@@ -12,12 +12,12 @@ export default {
 };
 </script>
 <style scoped>
-.container {
+.toast-container {
   width: 100%;
   overflow: hidden;
 }
 
-.container .message {
+.toast-container .message {
   position: absolute;
   display: block;
   top: 100px;

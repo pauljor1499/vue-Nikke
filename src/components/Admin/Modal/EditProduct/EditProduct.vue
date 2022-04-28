@@ -18,11 +18,10 @@
 import { defineComponent, ref } from "vue";
 import { Product_Service } from "../../../../api/ProductList.js";
 import ContentEditProduct from "./ContentEditProduct.vue";
-import SuccessToast from "../../../Popups/SuccessToast.vue";
 
 export default defineComponent({
   name: "EditProduct",
-  components: { ContentEditProduct, SuccessToast },
+  components: { ContentEditProduct },
 
   setup() {
     let showModal = ref(false);
@@ -39,31 +38,26 @@ export default defineComponent({
       } else {
         error_name.value = false;
       }
-
       if (update_product.TYPE.value == "") {
         error_type.value = true;
       } else {
         error_type.value = false;
       }
-
       if (update_product.PRICE.value == 0) {
         error_price.value = true;
       } else {
         error_price.value = false;
       }
-
       if (update_product.COLOR.value == "") {
         error_color.value = true;
       } else {
         error_color.value = false;
       }
-
       if (update_product.DESCRIPTION.value == "") {
         error_description.value = true;
       } else {
         error_description.value = false;
       }
-
       if (
         !error_name.value &&
         !error_type.value &&
@@ -114,38 +108,5 @@ export default defineComponent({
   padding: 20px;
   font-size: 18px;
   cursor: pointer;
-}
-
-.container {
-  width: 100%;
-  overflow: hidden;
-}
-
-.container .message {
-  position: absolute;
-  display: block;
-  top: 100px;
-  right: 20px;
-  width: 200px;
-  padding: 20px;
-  z-index: 1;
-  border-radius: 5px;
-  color: white;
-  background-color: rgb(45, 201, 71);
-
-  animation-name: showup;
-  animation-duration: 3s;
-  opacity: 0;
-}
-
-@keyframes showup {
-  from {
-    opacity: 1;
-    right: 20px;
-  }
-  to {
-    opacity: 1;
-    right: 20px;
-  }
 }
 </style>

@@ -68,15 +68,16 @@
       </div>
     </div>
     <div class="card-footer">
-      <n-button class="button-left" @click="this.$emit('closeModal')"
-        >Cancel</n-button
-      >
+      <n-button class="button-left" @click="this.$emit('closeModal')">
+        Cancel
+      </n-button>
       <n-button
         class="button-right"
         color="black"
         @click="this.$emit('editProductInput', update_product)"
-        >Update</n-button
       >
+        Update
+      </n-button>
     </div>
   </n-card>
 </template>
