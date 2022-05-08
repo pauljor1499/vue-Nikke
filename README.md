@@ -18,6 +18,7 @@ npm run build
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/48932230/167300426-03389379-3fd5-4288-888a-45f8e12256bc.gif)
 
 ![Screenshot 2022-04-23 160213](https://user-images.githubusercontent.com/48932230/164887064-d048e433-40cb-412c-8b9f-d70de2bc3da0.png)
 ![Screenshot 2022-04-23 160227](https://user-images.githubusercontent.com/48932230/164887068-4f19635b-9f08-45d8-a599-f993e55d308e.png)
